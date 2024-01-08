@@ -42,6 +42,8 @@ function App() {
           )
         }
       />
+
+      <Route path="/login" element={<PageLogin/>}/>
       <Route path="/patient/:patientId" element={<PageHDNPatient/>}/>
       <Route path="/patient/:patientId/:testCode/:testId" element={<PageHDNPIDetailed/>}/>
       <Route path="/unfinished" element={<PageHMTUnfinished/>}/>
