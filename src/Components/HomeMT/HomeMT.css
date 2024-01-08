@@ -1,28 +1,27 @@
-.lc-container {
+.mt-container {
     display: flex;
     flex-direction: column;
-    align-items: stretch; /* Center items horizontally */
-    width: 90vw; /* Width scales with the viewport width */
-    max-width: 10000px; /* Maximum width to prevent it from getting too wide */
-    margin: auto; /* Vertical margin scales with the viewport height */
-    margin-top: 3%; /* Top margin is a percentage of the viewport height */
-    padding: 3vw; /* Padding scales with the viewport width */
+    margin: auto;
+    width: 84%; 
+    margin: auto; 
+    margin-top: 3.4%; 
+    padding: 3vw;
     background: #fff;
-    border-radius: 25px; /* Border-radius is fixed */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Box-shadow is fixed */
+    border-radius: 50px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
 }
 
-.lc-label{
+.mt-label{
     display: flex;
     flex-direction: row;
     align-items: center;
     width: auto; 
     height: auto; 
     margin: auto;
-    gap: 25px; /* Spacing between items can be fixed */
+    gap: 25px; 
 }
 
-.lc-ITR{
+.mt-ITR{
     color: #18694e;
     font-size: clamp(1.5rem, 2vw, 40px);
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 
@@ -30,138 +29,112 @@
     font-weight: 600;
 }
 
-.lc-label img {
-    width: clamp(1.5rem, 15vw, 200px); /* Default size */
+.mt-label img {
+    width: clamp(10rem, 15vw, 220px); /* Default size */
     height: auto; /* Maintain the aspect ratio */
 }
 
-.lc-row{
+.mt-row{
     display: flex;
     flex-direction: row;
-    justify-content: space-between; 
+    gap: clamp(1.4rem, 4vw, 45px);
 }
 
-.lc-r-a-p {
+.mt-column {
     display: flex;
     flex-direction: column;
-    align-items: center; /* Align items to the left */
-    margin-top: clamp(2.5rem, 4vw, 20px); /* Fixed top margin */
-    padding: 2vw; /* Responsive padding that scales with the viewport width */
-    border: 2px solid #ccc; /* Fixed border width */
-    border-radius: 20px; /* Fixed border-radius */
-    max-width: 500px; /* Fixed max-width */
-    width: 25%; /* Ensure it scales down with its parent container */
-    height: 100%;
-    background: #fff; /* Fixed background color */
+    margin-top: clamp(2.5rem, 4vw, 20px);
+    gap: clamp(1.4rem, 4vw, 30px);
+    width: 30%;
+
 }
 
-.lc-r-a-p img {
-    display: flex;
-    width: clamp(1.8rem, 4vw, 70px); /* Adjust width to match the size of the slider image */
-    height: 100%; /* Maintain aspect ratio */
-    align-self: center; /* Center it within its flex container */
-    margin-top: 10%;
-}
-
-.r-a-p-title {
-    margin-top: 10%;
-    margin-bottom: 10px;
-    width: auto; /* Changed from 105% to auto to prevent overflow */
-
-    font-weight: bolder;
-    font-size: clamp(0.6rem, 1.7vw, 35px); /* Responsive font size between 1.25rem and 30px */
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    color: #18694e;
-}
-
-.lc-r-a-p-below{
-    display: flex;
-    flex-direction: row;
+.mt-new-c-p-r-button {
+    display: flex; 
+    justify-content: center;
     align-items: center; 
-    margin-top: 1%;
-    margin-bottom: 5%;
-}
-
-.lc-r-a-p-texts{
-    margin-top: -2%;
-}
-
-.r-a-p {
-    font-size: clamp(0.5rem, 2vw, 30px); /* Responsive font size */
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    color: #18694e;
-
-    margin: auto;
-    margin-top: clamp(0rem, 1vw, 35px);
-    padding-left: 2vw; /* Responsive padding that scales with the viewport width */
-}
-
-.lc-separator{
-    align-items: center; /* This will vertically center the children */
-    justify-content: start;
-    display: flex;
-    align-items: center; /* Centers the img vertically */
-    justify-content: center; /* Centers the img horizontally */
-    padding-left: 1vw;
-    padding-right: 1vw;
-}
-
-.lc-separator img{
-    height: 80%;
-    width: clamp(3rem, 4vw, 50px);
-    padding-top: clamp(2.5rem, 3vw, 70px);
-}
-
-/* Main column layout adjustments */
-.lc-column {
-    display: flex;
-    flex-direction: column;
-    margin-top: clamp(2.5rem, 4vw, 20px); /* Provide space at the top */
-    margin-right: 1%;
-    width: 70%; /* Set width relative to the parent element */
-    gap: clamp(1.4rem, 4vw, 40px);
-}
-
-/* Button style adjustments */
-.lc-new-c-p-r-button {
-    display: flex; /* Use flexbox to center the content */
-    justify-content: center; /* Center horizontally */
-    align-items: center; /* Center vertically */
-    height: 100%; /* Optional: Set a specific height if needed */
-    cursor: pointer; /* Cursor to pointer to indicate clickable */
-    border: 2px solid #ccc; /* Adjust border width and color */
-    padding: 5px 0 5px 0;
+    height: 100%; 
+    cursor: pointer;
+    border: 2px solid #ccc; 
+    padding: 10px 0 10px 0;
     border-radius: 50px;
+    width: 100%;
+    background-color: white;
 }
 
-.lc-new-c-p-r-text {
+.mt-new-c-p-r button:hover {
+    background-color: #86868623;
+}
+
+.mt-new-c-p-r-text {
     color: #18694e;
-    font-size: clamp(0rem, 2vw, 30px);
+    font-size: clamp(0rem, 2vw, 25px);
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 
        'Lucida Sans', Arial, sans-serif;
-    font-weight: 600;
 }
 
-.lc-add-t-e-p-r-container {
-    display: flex; /* Use flexbox to center the content */
+.mt-test-results {
+    display: flex;
     flex-direction: column;
-    justify-content: center; /* Center vertically */
-    align-items: center; /* Center horizontally */
-    height: 100%; /* Optional: Set a specific height if needed */
-    border: 2px solid #ccc; /* Adjust border width and color */
-    padding: 20px 0; /* Adjust padding as necessary */
-    border-radius: 30px; /* Rounded corners */
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #ccc;
+    border-radius: 40px; 
+    background-color: white;
 }
 
-.lc-add-t-e-p-r-text{
-    color: #18694e;
-    font-size: clamp(0rem, 2vw, 30px);
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 
-       'Lucida Sans', Arial, sans-serif;
+.mt-test-results-button button:hover {
+    cursor: pointer;
+    background-color: #86868623;
+}
+
+.mt-test-results img {
+    padding: 70px 0 30px 30px;
+    width: 48%;
+}
+
+.mt-t-r-unfinished {
+    padding-bottom: 55px;
+
+    color: #a21b1b;
+    font-size: clamp(0rem, 2vw, 28px);
     font-weight: 600;
 }
 
-.lc-search{
+.mt-t-r-finished {
+    padding-bottom: 55px;
+
+    color: #18694e;
+    font-size: clamp(0rem, 2vw, 28px);
+    font-weight: 600;
+}
+
+.mt-add-t-e-p-r{
+    margin-top: clamp(2.5rem, 4vw, 20px);
+    width: 70%;
+}
+
+.mt-add-t-e-p-r-container {
+    display: flex;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    border: 2px solid #ccc;
+    border-radius: 40px; 
+    height: 99.5%;
+}
+
+.mt-add-t-e-p-r-text{
+    padding-top: 30px;
+    padding-bottom: 5px;
+
+    color: #18694e;
+    font-size: clamp(0rem, 2vw, 25px);
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 
+       'Lucida Sans', Arial, sans-serif;
+}
+
+.mt-search{
     display: flex;
     align-items: center;
     margin: auto;
@@ -172,7 +145,7 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.lc-search input{
+.mt-search input{
     height: 50px;
     width: 100%;
     background: transparent;
@@ -187,16 +160,110 @@
        'Lucida Sans', Arial, sans-serif; 
 }
 
-.lc-search-button {
+.mt-search-button {
     padding-top: 7px;
     padding-right: 27px;
     opacity: 50%;
-}
-
-.lc-search-button img{
-    width: clamp(2rem, 4vw, 50px);;
-}
-
-.lc-search-button span{
     cursor: pointer;
+    padding-bottom: 5px;
+}
+
+.mt-search-button img{
+    width: clamp(2rem, 4vw, 35px);
+}
+
+.mt-search-button button{
+    cursor: pointer;
+
+    border: none;
+    background: none;
+}
+
+.mt-search-button button:hover{
+    border-radius: 100px;
+    background: #86868623;
+}
+
+.mt-smol {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 105%;
+    padding: 20px 0 0;
+}
+
+.mt-search{
+    display: flex;
+    align-items: center;
+    margin: auto;
+    width: 90%;
+    height: clamp(3rem, 5vw, 40px);
+    background: #edf5f3;
+    border-radius: 50px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.mt-patients{
+    width: 90%;
+    background: #edf5f3;
+    border-radius: 40px;
+    margin-top: clamp(2rem, 2.5vw, 35px);
+    margin-bottom: 1.7%;
+}
+
+.mt-patients-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #ccc; 
+    border-radius: 40px;
+    background-color: #ffffff; 
+    padding: 5px 5px 5px 5px; 
+    max-width: 100%; 
+    margin: auto;
+}
+
+.mt-p-h {
+    width: 1000px;
+    text-align: center;
+    font-size: auto;
+    font-size: clamp(0rem, 2vw, 20px);
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 
+    'Lucida Sans', Arial, sans-serif;
+    color: #18694e;
+}
+
+.mt-patients-table-container {
+    max-height: 240px;
+    overflow: auto;
+    position: relative;
+    background-color: #edf5f3;
+    border-radius: 13px;
+    padding-left: 6.5px;
+}
+
+.add-padding {
+    padding-right: 5.5px;
+}
+
+.mt-patients-table-container::-webkit-scrollbar {
+    width: 6px;
+}
+
+.mt-patients-table-container::-webkit-scrollbar-thumb {
+    background: #c4c4c4; 
+    border-radius: 5px;
+}
+
+.mt-patients-table-container::-webkit-scrollbar-thumb:hover {
+    background: #9e9e9e; 
+}
+
+.mt-patients-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0px 8px 0px; 
+    max-width: 100%; 
 }
