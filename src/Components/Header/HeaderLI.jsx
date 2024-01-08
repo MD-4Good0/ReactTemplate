@@ -11,15 +11,13 @@ const Header = () => {
     const navigate = useNavigate();
     const isLoggedIn = Userfront.accessToken() !== null;
 
-    // Do not show logout button on the login page
-
     const handleLogout = () => {
         Userfront.logout();
     }
 
     const navigateHome = () => {
         if (isLoggedIn) {
-            navigate('/');
+            navigate('/medlabview');
         } else {
             navigate('/login');
         }
@@ -29,7 +27,7 @@ const Header = () => {
         <div className='header'>
             <div className="left-stuff">
                 <div onClick={() => {
-                    if (window.location.pathname !== '/') {
+                    if (window.location.pathname !== '/medlabview/') {
                         navigate(-1);
                     }
                     }}>

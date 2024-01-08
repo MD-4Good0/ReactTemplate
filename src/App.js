@@ -1,8 +1,7 @@
 import './App.css';
-import { Routes, Route, Navigate,} from "react-router-dom";
+import { Routes, Route} from "react-router-dom";
 import PageHomeDN from './PageHomeDN';
 import PageHDNPatient from './PageHDNPatient';
-import PageHomeLC from './PageHomeLC';
 import PageHomeMT from './PageHomeMT';
 import PageHomePG from './PageHomePG';
 import PageAdmin from './PageAdmin';
@@ -19,8 +18,6 @@ function Home() {
   } else if (Userfront.user.hasRole("viewer")) {
     return <PageHomeDN />;
   } else if (Userfront.user.hasRole("author")) {
-    return <PageHomeLC />;
-  } else if (Userfront.user.hasRole("support")) {
     return <PageHomeMT />;
   } else if (Userfront.user.hasRole("subscriber")) {
     return <PageHomePG />;
@@ -30,8 +27,6 @@ function Home() {
   return <PageLogin />;
 }
 
-
-
 function App() {
   return (
     <Routes>
@@ -39,13 +34,12 @@ function App() {
         path="*"
         element={
           Userfront.accessToken() ? (
-            <Home />
+            <Home/>
           ) : (
-            <Navigate to="/login" />
+            <PageLogin/>
           )
         }
       />
-      <Route path="/login" element={<PageLogin />} />
       <Route path="/patient/:patientId" element={<PageHDNPatient/>}/>
       <Route path="/patient/:patientId/:testCode/:testId" element={<PageHDNPIDetailed/>}/>
     </Routes>
