@@ -1,5 +1,5 @@
 import './App.css';
-import { Routes, Route} from "react-router-dom";
+import { Routes, Route, Navigate} from "react-router-dom";
 import PageHomeDN from './PageHomeDN';
 import PageHDNPatient from './PageHDNPatient';
 import PageHomeMT from './PageHomeMT';
@@ -38,7 +38,7 @@ function App() {
           Userfront.accessToken() ? (
             <Home/>
           ) : (
-            <PageLogin/>
+            <Navigate to="/login" />
           )
         }
       />

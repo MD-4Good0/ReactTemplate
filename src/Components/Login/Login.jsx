@@ -16,7 +16,7 @@ const Login = () => {
     const navigate = useNavigate();
 
     const navigateAfterLogin = () => {
-        navigate("/medlabview");
+        navigate("/");
     }
 
     const handleLogin = async () => {
