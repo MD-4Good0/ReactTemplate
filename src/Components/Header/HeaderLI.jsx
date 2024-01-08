@@ -12,7 +12,7 @@ const Header = () => {
     const isLoggedIn = Userfront.accessToken() !== null;
 
     const handleLogout = () => {
-        Userfront.logout();
+        Userfront.logout({ redirect: false });
         navigate('/login');
     }
 
