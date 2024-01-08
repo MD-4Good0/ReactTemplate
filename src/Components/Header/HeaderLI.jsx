@@ -13,6 +13,7 @@ const Header = () => {
 
     const handleLogout = () => {
         Userfront.logout();
+        navigate('/login');
     }
 
     const navigateHome = () => {
