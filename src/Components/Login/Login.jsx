@@ -40,7 +40,7 @@ const Login = () => {
             }
         } catch (error) {
             alert("Incorrect username and password.");
-        } 
+        }
     };
 
     return (
