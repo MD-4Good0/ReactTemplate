@@ -17,7 +17,7 @@ const Header = () => {
 
     const navigateHome = () => {
         if (isLoggedIn) {
-            navigate('/medlabview');
+            navigate('/');
         } else {
             navigate('/login');
         }

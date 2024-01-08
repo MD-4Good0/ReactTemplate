@@ -13,10 +13,11 @@ const Login = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [visible, setVisible] = useState(false);
+    const [isLoading, setIsLoading] = useState(false); // Add isLoading state
     const navigate = useNavigate();
 
     const navigateAfterLogin = () => {
-        navigate("/medlabview");
+        navigate("/");
     }
 
     const handleLogin = async () => {
@@ -26,6 +27,7 @@ const Login = () => {
         }
     
         try {
+            setIsLoading(true);
     
             const response = await Userfront.login({
                 method: "password",
@@ -40,7 +42,9 @@ const Login = () => {
             }
         } catch (error) {
             alert("Incorrect username and password.");
-        } 
+        } finally {
+            setIsLoading(false);
+        }
     };
 
     return (
@@ -77,7 +81,12 @@ const Login = () => {
             </div>
 
             <div className="login-button" onClick={handleLogin}>
-                <button className="login-button-text">Login</button>
+                {/* Show loading text or spinner based on isLoading state */}
+                {isLoading ? (
+                    <button className="login-button-text">Login</button>
+                ) : (
+                    <button className="login-button-text">Login</button>
+                )}
             </div>
         </div>
     );
