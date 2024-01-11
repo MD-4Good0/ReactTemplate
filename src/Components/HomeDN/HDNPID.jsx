@@ -100,15 +100,16 @@ const HDNPID = () => {
                 const siUnitDocRef = doc(db, 'si_unit', `si_unit_00000_id`);
                 const siUnitDocSnapshot = await getDoc(siUnitDocRef);
                 console.log('siUnitDocSnapshot:', siUnitDocSnapshot);
-    
+
                 if (siUnitDocSnapshot.exists()) {
                     const siUnitData = siUnitDocSnapshot.data();
-                    if (siUnitData && siUnitData.si_units) {
-                        setSiUnitData(siUnitData.si_units);
-                        console.log('siUnitData:', siUnitData.si_units);
+                    console.log("line 106, siUnitData: ", siUnitData);
+                    if (siUnitData != null) {
+                        setSiUnitData(siUnitData);
+                        console.log('line 109, siUnitData:', siUnitData);
                     } else {
                         console.log('No si_units found in SI Unit document');
-                    }
+                    }                
                 } else {
                     console.log('No SI Unit document found');
                 }
@@ -166,9 +167,11 @@ const HDNPID = () => {
                     {/* Include other fields from test data as needed */}
                     {/* Dynamic rendering of parameters based on true values in the transaction collection */}
                     {Object.keys(testResult.testData).map((param) => {
-                        if (param !== 'specimenid' && param !== 'testid' && param !== 'id' && testResult.testData[param]) {
+                        if (!['specimenid', 'testid', 'id'].includes(param) && testResult.testData[param]) {
                             const si_unit = siUnitData && siUnitData[param];
-                            console.log('param: ', param);
+                            console.log('line 172, siUnitData: ', siUnitData);
+                            console.log('line 173, siUnitData[param]: ', siUnitData[param]);
+                            console.log('param:', param, 'si_unit:', si_unit);
 
                         return (
                             <React.Fragment key={param}>
@@ -177,7 +180,7 @@ const HDNPID = () => {
                             <div className="hdnpi-p-h-cell">{testResult.testData[param]}</div>
                             <div className="hdnpi-p-h-separator">|</div>
                             <div className="hdnpi-p-h-cell">
-                            {si_unit !== undefined ? <div>{si_unit}</div> : <div>SI Unit Not Available</div>}
+                            {si_unit !== undefined ? <div>{si_unit}</div> : <div></div>}
                             </div>
                             </React.Fragment>
                         );
