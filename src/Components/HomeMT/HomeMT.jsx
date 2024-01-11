@@ -16,7 +16,7 @@ const HomeMT = () => {
     const [isScrollbarVisible, setIsScrollbarVisible] = useState(false);
     const tableContainerRef = useRef(null);
     const [patients, setPatients] = useState([]);
-    const patientsCollectionRef = collection(db, "patients")
+    const patientsCollectionRef = collection(db, "patient")
 
     const navigate = useNavigate();
 
