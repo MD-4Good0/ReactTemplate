@@ -9,7 +9,7 @@ import { doc, getDoc, query, collection, where, getDocs } from 'firebase/firesto
 const HDNPI = () => {
     const { patientId } = useParams();
     const [patientData, setPatientData] = useState(null);
-    const [transactions, setTransactions] = useState([]);
+    const [specimens, setSpecimens] = useState([]);
     const [isScrollbarVisible, setIsScrollbarVisible] = useState(false);
     const tableContainerRef = useRef(null);
 
@@ -25,7 +25,7 @@ const HDNPI = () => {
     useEffect(() => {
         const fetchPatientData = async () => {
             try {
-                const patientDocRef = doc(db, 'patients', patientId);
+                const patientDocRef = doc(db, 'patient', `patient_${patientId}_id`);
                 const patientDocSnapshot = await getDoc(patientDocRef);
                 if (patientDocSnapshot.exists()) {
                     setPatientData({ ...patientDocSnapshot.data(), id: patientDocSnapshot.id });
@@ -37,18 +37,52 @@ const HDNPI = () => {
             }
         };
 
-        const fetchTransactions = async () => {
+        const fetchSpecimens = async () => {
             try {
-                const transactionsQuery = query(collection(db, 'transaction'), where('patientid', '==', patientId));
-                const transactionsSnapshot = await getDocs(transactionsQuery);
-                setTransactions(transactionsSnapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+                // Fetch patient document to get the patient ID
+                const patientDocRef = doc(db, 'patient', `patient_${patientId}_id`);
+                const patientDocSnapshot = await getDoc(patientDocRef);
+        
+                if (patientDocSnapshot.exists()) {
+                    const patientData = patientDocSnapshot.data();
+        
+                    // Now, use the patient's ID to query specimens
+                    const specimensQuery = query(collection(db, 'specimen'), where('patientid', '==', patientData.patientid));
+                    const specimensSnapshot = await getDocs(specimensQuery);
+        
+                    // Log the specimens for debugging
+                    console.log('Specimens:', specimensSnapshot.docs.map(doc => doc.data()));
+        
+                    // Array to store specimen data with patient details
+                    const specimensData = [];
+        
+                    // Iterate over the specimens in the specimen collection
+                    for (const specimenDoc of specimensSnapshot.docs) {
+                        const specimenData = specimenDoc.data();
+        
+                        // Combine patient and specimen data
+                        specimensData.push({
+                            ...specimenData,
+                            datetime_requested: specimenData.datetime_requested,
+                            datetime_received: specimenData.datetime_received,
+                            transactionid: specimenData.transactionid,
+                            specimenid: specimenData.specimenid,
+                            recommending_doctor: patientData.requesting_physician, // Add the recommending doctor here
+                        });
+                    }
+        
+                    // Update the state with the combined data
+                    setSpecimens(specimensData);
+                } else {
+                    console.log(`No patient found with ID: ${patientId}`);
+                }
             } catch (error) {
-                console.error('Error fetching transactions:', error.message);
+                console.error('Error fetching specimens:', error.message);
             }
-        };
+        };        
 
         fetchPatientData();
-        fetchTransactions();
+        fetchSpecimens();
     }, [patientId]);
 
     useEffect(() => {
@@ -57,28 +91,26 @@ const HDNPI = () => {
         return () => {
             window.removeEventListener('resize', checkForScrollbar); // Clean up listener on unmount
         };
-    }, [transactions]);
+    }, [specimens]);
 
     const navigate = useNavigate();
 
-    const redirectToPatientView = (patientId, testCode, testId) => {
+    const redirectToPatientView = (patientId, transactionId, specimenId) => {
         // Add your logic to redirect to the new view with the provided parameters
-        console.log(`Redirecting to patient view for Patient ID: ${patientId}, Test Code: ${testCode}, Test ID: ${testId}`);
+        console.log(`Redirecting to patient view for Patient ID: ${patientId}, Transaction ID: ${transactionId}, Specimen ID: ${specimenId}`);
         // Example navigation using react-router-dom
-        navigate(`/patient/${patientId}/${testCode}/${testId}`);
+        navigate(`/patient/${patientId}/${transactionId}/${specimenId}`);
         // history.push(`/new-view/${patientId}/${testCode}/${transactionId}`);
     };
 
     return (
         <div className="hdnpi-container">
-            
             <div className="hdnpi-title">
                 <img src={logo_icon} alt="Logo" />
-                <div>Laboratory Test Portal</div> {/* Fixed: Removed className to prevent conflict */}
+                <div>Laboratory Test Portal</div>
             </div>
 
             <div className="hdnpi-info-container">
-                {/* Patient Data Rows */}
                 {patientData && (
                     <div className="hdnpi-patient-info-header-row">
                         <div className="hdnpi-p-i-h-t-indiv">Family Name: {patientData.patientlastname}</div>
@@ -89,97 +121,38 @@ const HDNPI = () => {
                         <div className="hdnpi-p-i-h-t-indiv">Patient ID: {patientData.patientid}</div>
                     </div>
                 )}
-            <div className="hdnpi-patient-detailed-info-header-row">
-                <div className="hdnpi-patients-header">
-                    <div className="hdnpi-p-h">Date & Time Requested</div>
-                    <div className="hdnpi-p-h-separator">|</div>
-                    <div className="hdnpi-p-h">Date & Time Received</div>
-                    <div className="hdnpi-p-h-separator">|</div>
-                    <div className="hdnpi-p-h">Transaction ID</div>
-                    <div className="hdnpi-p-h-separator">|</div>
-                    <div className="hdnpi-p-h">Recommending Doctor</div>
-                </div>
-
-                <div className={`hdnpi-patients-table-container ${isScrollbarVisible ? '' : 'add-padding'}`} ref={tableContainerRef}>
-                    <div className="hdnpi-p-t-c-table">
-                        {/* Display transactions */}
-                        {transactions.map((transaction) => (
-                            <button key={transaction.id} className="hdnpi-patients-row" onClick={() => redirectToPatientView(transaction.patientid, transaction.testcode, transaction.testid)}>
-                                <div className="hdnpi-p-h-cell">{transaction.datetime}</div>
-                                <div className="hdnpi-p-h-separator">|</div>
-                                <div className="hdnpi-p-h-cell">{transaction.specimenid}</div>
-                                <div className="hdnpi-p-h-separator">|</div>
-                                <div className="hdnpi-p-h-cell">{getTestName(transaction.testcode)}</div>
-                                <div className="hdnpi-p-h-separator">|</div>
-                                <div className="hdnpi-p-h-cell">{transaction.testid}</div>
-                            </button>
-                        ))}
+                <div className="hdnpi-patient-detailed-info-header-row">
+                    <div className="hdnpi-patients-header">
+                        <div className="hdnpi-p-h">Date & Time Requested</div>
+                        <div className="hdnpi-p-h-separator">|</div>
+                        <div className="hdnpi-p-h">Date & Time Received</div>
+                        <div className="hdnpi-p-h-separator">|</div>
+                        <div className="hdnpi-p-h">Transaction ID</div>
+                        <div className="hdnpi-p-h-separator">|</div>
+                        <div className="hdnpi-p-h">Recommending Doctor</div>
                     </div>
-                </div>
+
+                    <div className={`hdnpi-patients-table-container ${isScrollbarVisible ? '' : 'add-padding'}`} ref={tableContainerRef}>
+                        <div className="hdnpi-p-t-c-table">
+                            {/* Display specimens */}
+                            {specimens.map((specimen) => (
+                                <button key={specimen.id} className="hdnpi-patients-row" onClick={() => redirectToPatientView(specimen.patientid, specimen.transactionid, specimen.specimenid)}>
+                                    <div className="hdnpi-p-h-cell">{specimen.datetime_requested}</div>
+                                    <div className="hdnpi-p-h-separator">|</div>
+                                    <div className="hdnpi-p-h-cell">{specimen.datetime_received}</div>
+                                    <div className="hdnpi-p-h-separator">|</div>
+                                    <div className="hdnpi-p-h-cell">{specimen.transactionid}</div>
+                                    <div className="hdnpi-p-h-separator">|</div>
+                                    <div className="hdnpi-p-h-cell">{specimen.recommending_doctor}</div>
+                                </button>
+                            ))}
+                        </div>
+                    </div>
                 </div>
             </div>
             <div className="dn-tagline">- Accurate, Fast, and Reliable Laboratory Results -</div>
         </div>
     );
-};
-
-const getTestName = (testCode) => {
-    switch (testCode) {
-        case '1':
-            return 'Complete Blood Count';
-        case '2':
-            return 'Blood Typing';
-        case '3':
-            return 'Erythrocyte Sedimentation Rate';
-        case '4':
-            return 'Fasting Blood Sugar';
-        case '5':
-            return 'Cholesterol';
-        case '6':
-            return 'Triglyceride';
-        case '7':
-            return 'High Density Lipoprotein';
-        case '8':
-            return 'Low Density Lipoprotein';
-        case '9':
-            return 'Very Low Density Lipoprotein';
-        case '10':
-            return 'Blood Urea Nitrogen';
-        case '11':
-            return 'Creatinine';
-        case '12':
-            return 'Blood Uric Acid';
-        case '13':
-            return 'Aspartate Transaminase';
-        case '14':
-            return 'Alanine Transaminase';
-        case '15':
-            return 'Alkaline Phosphatase';
-        case '16':
-            return 'Sodium';
-        case '17':
-            return 'Potassium';
-        case '18':
-            return 'Ionized Calcium';
-        case '19':
-            return 'Routine Urinalysis';
-        case '20':
-            return 'Pregnancy Test';
-        case '21':
-            return 'Routine fecalysis';
-        case '22':
-            return 'Fecal Occult Blood Test';
-        case '23':
-            return 'Anti-Streptolysin O Titer';
-        case '24':
-            return 'Dengue Antibody (IgG,IgM)';
-        case '25':
-            return 'Dengue antigen (NS1)';
-        default:
-            return `Test ${testCode}`;
-    }
-
-    
 };
 
 export default HDNPI;
