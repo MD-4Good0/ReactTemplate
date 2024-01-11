@@ -1,12 +1,12 @@
 import React from "react";
 import Header from "./Components/Header/HeaderLI";
-import HMTInput from './Components/HomeMT/HMTInput';
+import HMTInputBlood from './Components/HomeMT/HMTInputBlood';
 
 function PageHMTInput() {
     return(
         <div>
             <Header/>
-            <HMTInput/>
+            <HMTInputBlood/>
         </div>
     )
 }

@@ -8,9 +8,10 @@ import PageAdmin from './PageAdmin';
 import PageLogin from './PageLogin';
 import PageHDNPIDetailed from "./PageHDNPIDetailed";
 import PageHMTUnfinished from "./PageHMTUnfinished";
+import PageHMTInputBlood from './PageHMTInputBlood';
+
 import Userfront from "@userfront/react";
 import React from 'react';
-import PageHMTInput from './PageHMTInput';
 
 Userfront.init("8nwyy85n");
 
@@ -47,7 +48,7 @@ function App() {
       <Route path="/patient/:patientId" element={<PageHDNPatient/>}/>
       <Route path="/patient/:patientId/:transactionId/:specimenId" element={<PageHDNPIDetailed/>}/>
       <Route path="/unfinished" element={<PageHMTUnfinished/>}/>
-      <Route path="/input" element={<PageHMTInput/>}/>
+      <Route path="/input_blood" element={<PageHMTInputBlood/>}/>
     </Routes>
   );
 }

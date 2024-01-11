@@ -138,20 +138,21 @@
 
 .hdnpi-patients-row{
     display: flex;
+    flex-direction: center;
     justify-content: space-between;
     align-items: center;
-    padding: 7px 0px 7px 0px; 
+    padding: 10px 0px 10px 0px; 
     max-width: 100%; 
-    margin: auto;
 }
 
 .hdnpi-p-h-cell {
-    flex: 1; /* Make the cell flexible to take available space */
+    width: 1000px;
     text-align: center;
-    padding: 0 5px; /* Add padding to visually separate parameters */
-    margin: 0 1%;
+    padding: 0 0px 0 0px;
+    margin: 0 1% 0 1%;  
     font-size: clamp(0rem, 2vw, 21px);
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 
+    'Lucida Sans', Arial, sans-serif;
     color: #838383;
     border: none;
     background: none;
@@ -180,3 +181,9 @@
   .hdnpi-p-parameter > div {
     margin-bottom: 3px; /* Adjust as needed for spacing within a parameter group */
   }
+
+.hdnpi-p-h-column {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 10%;
+}
