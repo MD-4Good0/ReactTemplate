@@ -23,14 +23,10 @@ const HMTInput = () => {
         alp: ["alp"],
         sodium: ["sodium"],
         potassium: ["potassium"],
-        "calcium": "FALSE",
-        "urinalysis": "FALSE",
-        "pregnancy_test": "FALSE",
-        "fecalysis": "FALSE",
-        "fobt": "FALSE",
-        "aso": "FALSE",
-        "dengue_antibody": "FALSE",
-        "dengue_antigen": "FALSE"
+        calcium: ["calcium"],
+        aso: ["aso"],
+        dengue_antibody: ["igg", "igm"],
+        dengue_antigen: ["ns1"],
 
         // Add other tests and their parameters here
         // bloodtyping: ["param1", "param2", ...],
