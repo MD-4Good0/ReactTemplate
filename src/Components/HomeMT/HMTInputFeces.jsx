@@ -45,27 +45,8 @@ const HMTFeces = () => {
       };
 
     const testParameters = {
-        cbc: ["whitebloodcell", "redbloodcell", "hematocrit", "hemoglobin", "mcv", "mch", "mchc", "plateletcount", "rdw", "neutrophil", "lymphocyte", "eosonophil", "monocyte", "basophil"],
-        bloodtyping: ["blood group", "rhfactor"],
-        esr: ["esr"],
-        fbs: ["fbs"],
-        cholesterol: ["cholesterol"],
-        triglyceride: ["triglyceride"],
-        hdl: ["hdl"],
-        ldl: ["ldl"],
-        vldl: ["vldl"],
-        bun: ["bun"],
-        creatine: ["creatine"],
-        bua: ["bua"],
-        ast: ["ast"],
-        alt: ["alt"],
-        alp: ["alp"],
-        sodium: ["sodium"],
-        potassium: ["potassium"],
-        calcium: ["calcium"],
-        aso: ["aso"],
-        dengue_antibody: ["igg", "igm"],
-        dengue_antigen: ["ns1"],
+        fecalysis: ["color_apperance","consistency","mucus","blood","pus_cells","rbc","ova","cyst","bacteria","Other"],
+        fobt: ["fobt"]
 
         // Add other tests and their parameters here
         // bloodtyping: ["param1", "param2", ...],

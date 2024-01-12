@@ -3,46 +3,42 @@ import React, { useState, useRef } from 'react';
 import logo_icon from '../Assets/Logo.png';
 import underline from '../Assets/Underline.png';
 import './HMTInput.css';
-import { getFirestore, collection, query, where, getDocs, doc, getDoc } from 'firebase/firestore';
+import { initializeApp } from 'firebase/app';
+import { getFirestore, collection, addDoc , setDoc, doc } from 'firebase/firestore';
 import { redirect } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 
 const HMTInput = () => {
     const navigate = useNavigate();
 
-    const db = getFirestore();
+    const firebaseConfig = {
+        apiKey: "AIzaSyC0_oxrUWu1NoPuTBpCYOOTNAUXPUd_Y9c",
+        authDomain: "medlabview.firebaseapp.com",
+        projectId: "medlabview",
+        storageBucket: "medlabview.appspot.com",
+        messagingSenderId: "652128567946",
+        appId: "1:652128567946:web:d613e20cfafbfcee366373",
+        measurementId: "G-G5SSRYJVJZ"
+      };
+      
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      
+
+    const db = getFirestore(app);
 
     const savePatientData = async () => {
         try {
-          // Assuming you want to use the patientId as the document ID
-          const patientId = formData.patientId;
-          if (!patientId) {
-            throw new Error('Patient ID is required.');
+            // Create a document reference with a specific path
+            const patientDocRef = doc(db, 'patient', `patient_${formData.patientId}_id`);
+        
+            // Set data for the document at this reference
+            await setDoc(patientDocRef, formData);
+        
+            console.log('Patient data saved successfully!');
+          } catch (error) {
+            console.error('Error saving patient data:', error);
           }
-      
-          // Remove false values for tests that are not checked
-          const testsToSave = Object.keys(initialTestState).reduce((acc, testName) => {
-            if (formData[testName]) {
-              acc[testName] = {};
-              testParameters[testName].forEach(param => {
-                acc[testName][param] = formData[`${testName}_${param}`];
-              });
-            }
-            return acc;
-          }, {});
-      
-          // Combine patient data and tests data
-          const dataToSave = {
-            ...formData,
-            tests: testsToSave,
-          };
-      
-          // Save to Firestore
-          await db.collection('patient').doc(patientId).set(dataToSave);
-          console.log('Patient data saved successfully!');
-        } catch (error) {
-          console.error('Error saving patient data:', error);
-        }
       };
 
     const testParameters = {
@@ -73,6 +69,22 @@ const HMTInput = () => {
         // esr: ["param1", "param2", ...],
         // ...
     };
+
+    const clearFormData = () => {
+        setFormData({
+          firstName: '',
+          middleName: '',
+          surname: '',
+          sex: 'male',
+          patientId: '',
+          birthdate: '',
+          age: '',
+          dateRequested: '',
+          dateReceived: '',
+          specimenNumber: '',
+          ...initialTestState,
+        });
+      };
 
     const initialTestState = Object.keys(testParameters).reduce((acc, test) => {
         acc[test] = false; // For checkbox state
@@ -138,6 +150,11 @@ const HMTInput = () => {
           )}
         </div>
       );
+
+      const handleNextButtonClick = () => {
+        savePatientData();
+        navigate("/input_urine");
+      };
 
     return (
         <div className="hmti-container">
@@ -287,10 +304,10 @@ const HMTInput = () => {
 
                             <div className="hmti-checklist-row">
                                 <div className="hmti-c-r-buttons">
-                                    <button className="hmti-c-r-next" onClick={handleSwitchUrine}>Next</button>
+                                    <button className="hmti-c-r-next" onClick={handleNextButtonClick}>Next</button>
                                 </div>
                                 <div className="hmti-c-r-buttons">
-                                    <button className="hmti-c-r-next-clear">Clear</button>
+                                    <button className="hmti-c-r-next-clear" onClick={clearFormData}>Clear</button>
                                 </div>
                             </div>
                         </div>
