@@ -197,6 +197,18 @@
     margin-left: 10px;
 }
 
+.hmti-tests-title {
+    margin: 20px 0 20px 0;
+    font-size: 30px;
+}
+
+.hmti-tests img{
+    margin-top: calc(-30px);
+    margin-bottom: calc(-10px);
+    height: 50px;
+    width: 90%;
+}
+
 .test-section {
     margin-bottom: 10px;
   }
