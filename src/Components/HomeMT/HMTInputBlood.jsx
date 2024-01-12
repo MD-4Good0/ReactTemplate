@@ -245,14 +245,14 @@ const HMTInput = () => {
                     </div>
 
                     {/* Blood Laboratory Tests Section */}
-                    <div className="hmti-tests">
+                </div>
+                <div className="hmti-tests">
                         <div className="hmti-tests-title">Blood Laboratory Tests</div>
                         <img src={underline} alt="underline" />
                         <div className="hmti-tests-row">
                             {Object.keys(initialTestState).map(testName => renderTestInput(testName))}
                         </div>
-                    </div>
-                </div>
+                    </div>  
             </div>
         </div>
     );
