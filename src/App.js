@@ -1,3 +1,6 @@
+import Userfront from "@userfront/react";
+import React from 'react';
+
 import './App.css';
 import { Routes, Route, Navigate} from "react-router-dom";
 import PageHomeDN from './PageHomeDN';
@@ -11,9 +14,7 @@ import PageHMTUnfinished from "./PageHMTUnfinished";
 import PageHMTInputBlood from './PageHMTInputBlood';
 import PageHMTInputUrine from './PageHMTInputUrine';
 import PageHMTInputFeces from './PageHMTInputFeces';
-
-import Userfront from "@userfront/react";
-import React from 'react';
+import PageHMTSummary from './PageHMTSummary';
 
 Userfront.init("8nwyy85n");
 
@@ -53,6 +54,7 @@ function App() {
       <Route path="/input_blood" element={<PageHMTInputBlood/>}/>
       <Route path="/input_urine" element={<PageHMTInputUrine/>}/>
       <Route path="/input_feces" element={<PageHMTInputFeces/>}/>
+      <Route path="/summary" element={<PageHMTSummary/>}/>
     </Routes>
   );
 }

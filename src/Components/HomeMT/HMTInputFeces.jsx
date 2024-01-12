@@ -4,8 +4,11 @@ import logo_icon from '../Assets/Logo.png';
 import underline from '../Assets/Underline.png';
 import './HMTInput.css';
 import { getFirestore, collection, query, where, getDocs, doc, getDoc } from 'firebase/firestore';
+import { useNavigate } from 'react-router-dom';
 
 const HMTFeces = () => {
+    const navigate = useNavigate();
+
     const db = getFirestore();
 
     const savePatientData = async () => {
@@ -98,6 +101,10 @@ const HMTFeces = () => {
     
     const handleInputChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
+    };
+
+    const handleSwitchSummary = (e) => {
+        navigate("/summary");
     };
 
     const renderTestInput = (testName) => (
@@ -279,7 +286,7 @@ const HMTFeces = () => {
 
                             <div className="hmti-checklist-row">
                                 <div className="hmti-c-r-buttons">
-                                    <button className="hmti-c-r-next">Save</button>
+                                    <button className="hmti-c-r-next" OnClick={handleSwitchSummary}>Save</button>
                                 </div>
                                 <div className="hmti-c-r-buttons">
                                     <button className="hmti-c-r-next-clear">Clear</button>
