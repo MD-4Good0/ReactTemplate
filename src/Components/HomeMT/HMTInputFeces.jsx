@@ -1,15 +1,16 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 
 import logo_icon from '../Assets/Logo.png';
 import underline from '../Assets/Underline.png';
 import './HMTInput.css';
 import { getFirestore, collection, query, where, getDocs, doc, getDoc } from 'firebase/firestore';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 const HMTFeces = () => {
     const navigate = useNavigate();
-
     const db = getFirestore();
+    const { patientId } = useParams();
+    const [patientData, setPatientData] = useState(null);
 
     const savePatientData = async () => {
         try {
@@ -56,9 +57,9 @@ const HMTFeces = () => {
 
     const initialTestState = Object.keys(testParameters).reduce((acc, test) => {
         acc[test] = false; // For checkbox state
-        testParameters[test].forEach(param => {
+        /*testParameters[test].forEach(param => {
             acc[`${test}_${param}`] = ''; // For parameter input values
-        });
+        });*/
         return acc;
     }, {});
 
@@ -87,6 +88,34 @@ const HMTFeces = () => {
     const handleSwitchSummary = (e) => {
         navigate("/summary");
     };
+
+    useEffect(() => {
+        const fetchPatientData = async () => {
+            try {
+            // Check if patientId is available
+            if (!patientId) {
+                console.error('No patient ID provided');
+                return;
+            }
+
+            const patientDocRef = doc(db, 'patient', `patient_${patientId}_id`);
+            const docSnap = await getDoc(patientDocRef);
+
+            if (docSnap.exists()) {
+                setFormData(prevFormData => ({
+                ...prevFormData,
+                ...docSnap.data(),
+                patientId: `${patientId}` // Set patientId in formData
+                }));
+            } else {
+                console.log('No such patient!');
+            }
+            } catch (error) {
+            console.error('Error fetching patient data:', error);
+            }
+        };
+        fetchPatientData();
+        }, [db, patientId]);
 
     const renderTestInput = (testName) => (
         <div className="test-section" key={testName}>

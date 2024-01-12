@@ -28,17 +28,30 @@ const HMTInput = () => {
     const db = getFirestore(app);
 
     const savePatientData = async () => {
-        try {
-            // Create a document reference with a specific path
-            const patientDocRef = doc(db, 'patient', `patient_${formData.patientId}_id`);
-        
-            // Set data for the document at this reference
-            await setDoc(patientDocRef, formData);
-        
-            console.log('Patient data saved successfully!');
-          } catch (error) {
+        try{ 
+            const { firstName, middleName, surname, sex, patientId, birthdate, age } = formData;
+
+                // Create an object with just the patient info
+                const patientInfoToSave = {
+                firstName,
+                middleName,
+                surname,
+                sex,
+                patientId,
+                birthdate,
+                age,
+                // You can add more patient-specific fields here if necessary
+                };
+
+                // Reference to the patient document in the Firestore collection
+                const patientDocRef = doc(db, 'patient', `patient_${patientId}_id`);
+
+                // Save to Firestore
+                await setDoc(patientDocRef, patientInfoToSave);
+                console.log('Patient data saved successfully!');
+        } catch (error) {
             console.error('Error saving patient data:', error);
-          }
+        }
       };
 
     const testParameters = {
@@ -88,9 +101,9 @@ const HMTInput = () => {
 
     const initialTestState = Object.keys(testParameters).reduce((acc, test) => {
         acc[test] = false; // For checkbox state
-        testParameters[test].forEach(param => {
+        /*testParameters[test].forEach(param => {
             acc[`${test}_${param}`] = ''; // For parameter input values
-        });
+        });*/
         return acc;
     }, {});
 
@@ -149,12 +162,21 @@ const HMTInput = () => {
             </div>
           )}
         </div>
-      );
+      );        
 
-      const handleNextButtonClick = () => {
-        savePatientData();
-        navigate("/input_urine");
-      };
+      const handleNextButtonClick = async () => {
+        try {
+            // Assuming patientId is part of the formData state
+            const patientId = formData.patientId;
+    
+            await savePatientData();
+    
+            // Redirecting to the next page with the patientId
+            navigate(`/input_urine/${patientId}`);
+        } catch (error) {
+            console.error('Failed to save patient data or navigate:', error);
+        }
+    };
 
     return (
         <div className="hmti-container">

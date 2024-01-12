@@ -1,48 +1,19 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 
 import logo_icon from '../Assets/Logo.png';
 import underline from '../Assets/Underline.png';
 import './HMTInput.css';
 import { getFirestore, collection, query, where, getDocs, doc, getDoc } from 'firebase/firestore';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 const HMTUrine = () => {
+    
     const navigate = useNavigate();
 
     const db = getFirestore();
 
-    const savePatientData = async () => {
-        try {
-          // Assuming you want to use the patientId as the document ID
-          const patientId = formData.patientId;
-          if (!patientId) {
-            throw new Error('Patient ID is required.');
-          }
-      
-          // Remove false values for tests that are not checked
-          const testsToSave = Object.keys(initialTestState).reduce((acc, testName) => {
-            if (formData[testName]) {
-              acc[testName] = {};
-              testParameters[testName].forEach(param => {
-                acc[testName][param] = formData[`${testName}_${param}`];
-              });
-            }
-            return acc;
-          }, {});
-      
-          // Combine patient data and tests data
-          const dataToSave = {
-            ...formData,
-            tests: testsToSave,
-          };
-      
-          // Save to Firestore
-          await db.collection('patient').doc(patientId).set(dataToSave);
-          console.log('Patient data saved successfully!');
-        } catch (error) {
-          console.error('Error saving patient data:', error);
-        }
-      };
+    const { patientId } = useParams();
+    const [patientData, setPatientData] = useState(null);
 
     const testParameters = {
         urinalysis: ["yellow", "clear","glucose", "bilirubin","ketone","specific_gravity","blood","ascorbic_acid","creatinine","ph_level","protein","urobilinogen","nitrite","leukocytes","microalbumin","rbc","wbc","sec","amorphous_urate","mucus_threads","bacteria"],
@@ -56,9 +27,9 @@ const HMTUrine = () => {
 
     const initialTestState = Object.keys(testParameters).reduce((acc, test) => {
         acc[test] = false; // For checkbox state
-        testParameters[test].forEach(param => {
+        /*testParameters[test].forEach(param => {
             acc[`${test}_${param}`] = ''; // For parameter input values
-        });
+        });*/
         return acc;
     }, {});
 
@@ -118,6 +89,46 @@ const HMTUrine = () => {
           )}
         </div>
       );
+
+      useEffect(() => {
+        const fetchPatientData = async () => {
+            try {
+            // Check if patientId is available
+            if (!patientId) {
+                console.error('No patient ID provided');
+                return;
+            }
+
+            const patientDocRef = doc(db, 'patient', `patient_${patientId}_id`);
+            const docSnap = await getDoc(patientDocRef);
+
+            if (docSnap.exists()) {
+                setFormData(prevFormData => ({
+                ...prevFormData,
+                ...docSnap.data(),
+                patientId: `${patientId}` // Set patientId in formData
+                }));
+            } else {
+                console.log('No such patient!');
+            }
+            } catch (error) {
+            console.error('Error fetching patient data:', error);
+            }
+        };
+        fetchPatientData();
+        }, [db, patientId]);
+
+        const handleNextButtonClick = async () => {
+            try {
+                // Assuming patientId is part of the formData state
+                const patientId = formData.patientId;
+        
+                // Redirecting to the next page with the patientId
+                navigate(`/input_feces/${patientId}`);
+            } catch (error) {
+                console.error('Failed to save patient data or navigate:', error);
+            }
+        };
 
     return (
         <div className="hmti-container">
@@ -267,7 +278,7 @@ const HMTUrine = () => {
 
                             <div className="hmti-checklist-row">
                                 <div className="hmti-c-r-buttons">
-                                    <button className="hmti-c-r-next" onClick={handleSwitchFeces}>Next</button>
+                                    <button className="hmti-c-r-next" onClick={handleNextButtonClick}>Next</button>
                                 </div>
                                 <div className="hmti-c-r-buttons">
                                     <button className="hmti-c-r-next-clear">Clear</button>
