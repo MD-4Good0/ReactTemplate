@@ -141,56 +141,38 @@ const HDNPID = () => {
             </div>
           )}
   
-          <div className="hdnpi-patient-detailed-info-header-row">
-            <div className="hdnpi-patients-header">
-              <div className="hdnpi-p-h">Specimen ID</div>
-              <div className="hdnpi-p-h-separator">|</div>
-              <div className="hdnpi-p-h">Test</div>
-              <div className="hdnpi-p-h-separator">|</div>
-              <div className="hdnpi-p-h">Parameter</div>
-              <div className="hdnpi-p-h-separator">|</div>
-              <div className="hdnpi-p-h">Result</div>
-              <div className="hdnpi-p-h-separator">|</div>
-              <div className="hdnpi-p-h">SI Unit</div>
-            </div>
-  
-            <div className={`hdnpi-patients-table-container ${isScrollbarVisible ? '' : 'add-padding'}`} ref={tableContainerRef}>
-                <div className="hdnpi-p-t-c-table">
-                {/* Display data from the retrieved collection */}
-                {testData && testData.map((testResult) => (
-                    <div className="hdnpi-patients-row" key={testResult.test}>
-                    <div className="hdnpi-p-h-cell">{testResult.testData.specimenid}</div>
-                    <div className="hdnpi-p-h-separator">|</div>
-                    <div className="hdnpi-p-h-cell">{getBiggerTest(testResult.test)}</div>
-                    <div className="hdnpi-p-h-separator">|</div>
+          {/* Table for Test Results */}
+            <div className="hdnpi-patient-detailed-info-header-row">
+              <table className="hdnpi-table">
+                <thead>
+                  <tr className="hdnpi-patients-header">
+                    <th className="hdnpi-p-h">Specimen ID</th>
+                    <th className="hdnpi-p-h">Test</th>
+                    <th className="hdnpi-p-h">Parameter</th>
+                    <th className="hdnpi-p-h">Result</th>
+                    <th className="hdnpi-p-h">SI Unit</th>
+                  </tr>
+                </thead>
+                <tbody className="hdnpi-patients-table-container">
+                  {testData && testData.map((testResult, index) => {
+                    const parameters = Object.entries(testResult.testData).filter(([key]) => !['specimenid', 'testid', 'id'].includes(key));
+                    const numRows = parameters.length; // Count the number of parameters for this test
 
-                    {/* Include other fields from test data as needed */}
-                    {/* Dynamic rendering of parameters based on true values in the transaction collection */}
-                    {Object.keys(testResult.testData).map((param) => {
-                        if (!['specimenid', 'testid', 'id'].includes(param) && testResult.testData[param]) {
-                            const si_unit = siUnitData && siUnitData[param];
-                            console.log('line 172, siUnitData: ', siUnitData);
-                            console.log('line 173, siUnitData[param]: ', siUnitData[param]);
-                            console.log('param:', param, 'si_unit:', si_unit);
-
-                        return (
-                            <React.Fragment key={param}>
-                            <div className="hdnpi-p-h-cell">{param}</div>
-                            <div className="hdnpi-p-h-separator">|</div>
-                            <div className="hdnpi-p-h-cell">{testResult.testData[param]}</div>
-                            <div className="hdnpi-p-h-separator">|</div>
-                            <div className="hdnpi-p-h-cell">
-                            {si_unit !== undefined ? <div>{si_unit}</div> : <div></div>}
-                            </div>
-                            </React.Fragment>
-                        );
-                        }
-                        return null;
-                    })}
-                    </div>
-                ))}
-              </div>
-            </div>
+                    return parameters.map(([param, value], paramIndex) => {
+                      const si_unit = siUnitData && siUnitData[param];
+                      return (
+                        <tr className="hdnpi-patients-row" key={`${index}-${paramIndex}`}>
+                          {paramIndex === 0 && <td className="hdnpi-p-h-cell" rowSpan={numRows}>{testResult.testData.specimenid}</td>}
+                          {paramIndex === 0 && <td className="hdnpi-p-h-cell" rowSpan={numRows}>{getBiggerTest(testResult.test)}</td>}
+                          <td className="hdnpi-p-h-cell-param">{param}</td>
+                          <td className="hdnpi-p-h-cell-param">{value}</td>
+                          <td className="hdnpi-p-h-cell-param">{si_unit !== undefined ? si_unit : ''}</td>
+                        </tr>
+                      );
+                    })
+                  })}
+                </tbody>
+              </table>
           </div>
         </div>
   
@@ -203,7 +185,7 @@ const getBiggerTest = (testCode) => {
 switch (testCode) {
     case 'cbc':
         return 'Complete Blood Count';
-    case 'blood_typing':
+    case 'bloodtyping':
         return 'Blood Typing';
     case 'esr':
         return 'Erythrocyte Sedimentation Rate';

@@ -137,13 +137,13 @@ const HDNPI = () => {
                             {/* Display specimens */}
                             {specimens.map((specimen) => (
                                 <button key={specimen.id} className="hdnpi-patients-row" onClick={() => redirectToPatientView(specimen.patientid, specimen.transactionid, specimen.specimenid)}>
-                                    <div className="hdnpi-p-h-cell">{specimen.datetime_requested}</div>
+                                    <div className="hdnpi-p-h-cell-hdnpi">{specimen.datetime_requested}</div>
                                     <div className="hdnpi-p-h-separator">|</div>
-                                    <div className="hdnpi-p-h-cell">{specimen.datetime_received}</div>
+                                    <div className="hdnpi-p-h-cell-hdnpi">{specimen.datetime_received}</div>
                                     <div className="hdnpi-p-h-separator">|</div>
-                                    <div className="hdnpi-p-h-cell">{specimen.transactionid}</div>
+                                    <div className="hdnpi-p-h-cell-hdnpi">{specimen.transactionid}</div>
                                     <div className="hdnpi-p-h-separator">|</div>
-                                    <div className="hdnpi-p-h-cell">{specimen.recommending_doctor}</div>
+                                    <div className="hdnpi-p-h-cell-hdnpi">{specimen.recommending_doctor}</div>
                                 </button>
                             ))}
                         </div>

@@ -185,3 +185,46 @@
     height: 50px;
     width: 90%;
 }
+
+.hmti-test-input {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.hmti-test-input input[type="text"] {
+    margin-left: 10px;
+    flex-grow: 1; /* To make the result input take up the remaining space */
+}
+
+.test-section {
+    margin-bottom: 10px;
+  }
+  
+  .test-label {
+    display: block; /* or 'flex' if you want the checkbox inline */
+    margin-bottom: 5px;
+  }
+  
+  .test-parameters {
+    margin-left: 20px;
+    border-left: 2px solid #ccc;
+    padding-left: 10px;
+  }
+  
+  .test-parameter {
+    margin-bottom: 5px;
+  }
+  
+  .parameter-label {
+    display: block; /* Adjust as needed for your layout */
+  }
+  
+  input[type="text"] {
+    width: calc(100% - 20px); /* Adjust width as needed */
+    padding: 5px;
+    margin-bottom: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
