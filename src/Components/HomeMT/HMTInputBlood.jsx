@@ -240,6 +240,15 @@ const HMTInput = () => {
                                     />
                                 </div>
                             </div>
+
+                            <div className="hmti-checklist-row">
+                                <div className="hmti-c-r-buttons">
+                                    <button className="hmti-c-r-next-save">Next</button>
+                                </div>
+                                <div className="hmti-c-r-buttons">
+                                    <button className="hmti-c-r-next-clear">Clear</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
