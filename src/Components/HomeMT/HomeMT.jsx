@@ -59,6 +59,10 @@ const HomeMT = () => {
         navigate('/unfinished')
     }
 
+    const redirectToPatientInputView = (patientId) => {
+        navigate(`/input_blood/${patientId}`);
+    };
+
     useEffect(() => {
         // Call handleSearch on component mount to load all patients initially
         handleSearch();
@@ -127,7 +131,8 @@ const HomeMT = () => {
                                 <div className={`mt-patients-table-container ${!isScrollbarVisible ? 'add-padding' : ''}`} ref={tableContainerRef}>
                                     <div className="dn-patients-table">
                                         {patients.map((user) => (
-                                            <button key={user.id} className="mt-patients-row">
+                                            <button key={user.id} className="mt-patients-row" onClick={() => 
+                                                redirectToPatientInputView(user.patientid)}>
                                                 <div className="dn-p-r-cell">{user.patientid}</div>
                                                 <div className="dn-p-h-separator">|</div>
                                                 <div className="dn-p-r-cell">{user.patientlastname}</div>

@@ -11,7 +11,8 @@ import PageAdmin from './PageAdmin';
 import PageLogin from './PageLogin';
 import PageHDNPIDetailed from "./PageHDNPIDetailed";
 import PageHMTUnfinished from "./PageHMTUnfinished";
-import PageHMTInputBlood from './PageHMTInputBlood';
+import PageHMTInputBloodNew from './PageHMTInputBloodNew';
+import PageHMTInputBloodExist from './PageHMTInputBloodExist';
 import PageHMTInputUrine from './PageHMTInputUrine';
 import PageHMTInputFeces from './PageHMTInputFeces';
 import PageHMTSummary from './PageHMTSummary';
@@ -50,10 +51,13 @@ function App() {
       <Route path="/login" element={<PageLogin/>}/>
       <Route path="/patient/:patientId" element={<PageHDNPatient/>}/>
       <Route path="/patient/:patientId/:transactionId/:specimenId" element={<PageHDNPIDetailed/>}/>
-      <Route path="/unfinished" element={<PageHMTUnfinished/>}/>
-      <Route path="/input_blood" element={<PageHMTInputBlood/>}/>
+      <Route path="/unfinished" element={<PageHMTUnfinished/>}/>  
       <Route path="/input_urine/:patientId" element={<PageHMTInputUrine/>}/>
       <Route path="/input_feces/:patiendId" element={<PageHMTInputFeces/>}/>
+      <Route path="/input_blood/:patientId" element={<PageHMTInputBloodExist/>}/>
+      <Route path="/input_blood" element={<PageHMTInputBloodNew/>}/>
+      <Route path="/input_urine" element={<PageHMTInputUrine/>}/>
+      <Route path="/input_feces" element={<PageHMTInputFeces/>}/>
       <Route path="/summary" element={<PageHMTSummary/>}/>
     </Routes>
   );
