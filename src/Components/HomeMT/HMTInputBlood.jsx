@@ -77,7 +77,7 @@ const HMTInput = () => {
           </label>
           {formData[testName] && (
             <div className="test-parameters">
-              {testParameters[testName].map(param => (
+              {testParameters[testName]?.map(param => (
                 <div key={`${testName}_${param}`} className="test-parameter">
                   <label className="parameter-label">
                     {param.replace(/_/g, ' ').toUpperCase()}:
@@ -87,7 +87,6 @@ const HMTInput = () => {
                     name={`${testName}_${param}`}
                     value={formData[`${testName}_${param}`]}
                     onChange={handleInputChange}
-                    placeholder={param.replace(/_/g, ' ')}
                   />
                 </div>
               ))}
@@ -250,7 +249,8 @@ const HMTInput = () => {
                         <div className="hmti-tests-title">Blood Laboratory Tests</div>
                         <img src={underline} alt="underline" />
                         <div className="hmti-tests-row">
-                            {Object.keys(initialTestState).map(testName => renderTestInput(testName))}
+                        {Object.keys(initialTestState || {}).map(testName => renderTestInput(testName))}
+
                         </div>
                     </div>  
             </div>
