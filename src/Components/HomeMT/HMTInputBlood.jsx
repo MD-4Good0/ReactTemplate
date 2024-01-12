@@ -3,8 +3,44 @@ import React, { useState, useRef } from 'react';
 import logo_icon from '../Assets/Logo.png';
 import underline from '../Assets/Underline.png';
 import './HMTInput.css';
+import { getFirestore, collection, query, where, getDocs, doc, getDoc } from 'firebase/firestore';
 
 const HMTInput = () => {
+    const db = getFirestore();
+
+    const savePatientData = async () => {
+        try {
+          // Assuming you want to use the patientId as the document ID
+          const patientId = formData.patientId;
+          if (!patientId) {
+            throw new Error('Patient ID is required.');
+          }
+      
+          // Remove false values for tests that are not checked
+          const testsToSave = Object.keys(initialTestState).reduce((acc, testName) => {
+            if (formData[testName]) {
+              acc[testName] = {};
+              testParameters[testName].forEach(param => {
+                acc[testName][param] = formData[`${testName}_${param}`];
+              });
+            }
+            return acc;
+          }, {});
+      
+          // Combine patient data and tests data
+          const dataToSave = {
+            ...formData,
+            tests: testsToSave,
+          };
+      
+          // Save to Firestore
+          await db.collection('patient').doc(patientId).set(dataToSave);
+          console.log('Patient data saved successfully!');
+        } catch (error) {
+          console.error('Error saving patient data:', error);
+        }
+      };
+
     const testParameters = {
         cbc: ["whitebloodcell", "redbloodcell", "hematocrit", "hemoglobin", "mcv", "mch", "mchc", "plateletcount", "rdw", "neutrophil", "lymphocyte", "eosonophil", "monocyte", "basophil"],
         bloodtyping: ["blood group", "rhfactor"],
