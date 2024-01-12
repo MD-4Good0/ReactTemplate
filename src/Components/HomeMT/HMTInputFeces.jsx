@@ -91,62 +91,54 @@ const HMTFeces = () => {
 
     useEffect(() => {
         const fetchPatientData = async () => {
-            try {
-            // Check if patientId is available
-            if (!patientId) {
-                console.error('No patient ID provided');
-                return;
-            }
+            if (patientId) {
+                const patientDocRef = doc(db, 'patient', `patient_${patientId}_id`);
+                const docSnap = await getDoc(patientDocRef);
 
-            const patientDocRef = doc(db, 'patient', `patient_${patientId}_id`);
-            const docSnap = await getDoc(patientDocRef);
-
-            if (docSnap.exists()) {
-                setFormData(prevFormData => ({
-                ...prevFormData,
-                ...docSnap.data(),
-                patientId: `${patientId}` // Set patientId in formData
-                }));
-            } else {
-                console.log('No such patient!');
-            }
-            } catch (error) {
-            console.error('Error fetching patient data:', error);
+                if (docSnap.exists()) {
+                    setFormData(prevFormData => ({
+                        ...prevFormData,
+                        ...docSnap.data(),
+                        patientId: `${patientId}` 
+                    }));
+                } else {
+                    console.log('No such patient!');
+                }
             }
         };
         fetchPatientData();
-        }, [db, patientId]);
+    }, [db, patientId]);
 
-    const renderTestInput = (testName) => (
-        <div className="test-section" key={testName}>
-          <label className="test-label">
-            {testName.toUpperCase()}:
-            <input
-              type="checkbox"
-              name={testName}
-              checked={formData[testName]}
-              onChange={handleCheckboxChange}
-            />
-          </label>
-          {formData[testName] && (
-            <div className="test-parameters">
-              {testParameters[testName]?.map(param => (
-                <div key={`${testName}_${param}`} className="test-parameter">
-                  <label className="parameter-label">
-                    {param.replace(/_/g, ' ').toUpperCase()}:
-                  </label>
-                  <input
-                    type="text"
-                    name={`${testName}_${param}`}
-                    value={formData[`${testName}_${param}`]}
-                    onChange={handleInputChange}
-                  />
-                </div>
-              ))}
+        const renderTestInput = testName => (
+            <div className="test-section" key={testName}>
+                <label className="test-label">
+                    {testName.toUpperCase()}:
+                    <input
+                        type="checkbox"
+                        name={testName}
+                        checked={formData[testName]}
+                        onChange={handleCheckboxChange}
+                    />
+                </label>
+                {formData[testName] && (
+                    <div className="test-parameters">
+                        {testParameters[testName].map(param => (
+                            <div key={`${testName}_${param}`} className="test-parameter">
+                                <label className="parameter-label">
+                                    {param.replace(/_/g, ' ').toUpperCase()}:
+                                </label>
+                                <input
+                                    type="text"
+                                    name={`${testName}_${param}`}
+                                    value={formData[`${testName}_${param}`]}
+                                    onChange={handleInputChange}
+                                />
+                            </div>
+                        ))}
+                    </div>
+                )}
             </div>
-          )}
-        </div>
-      );
+        );
 
     return (
         <div className="hmti-container">

@@ -55,10 +55,6 @@ const HMTUrine = () => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
-    const handleSwitchFeces = (e) => {
-        navigate("/input_feces");
-    };
-
     const renderTestInput = (testName) => (
         <div className="test-section" key={testName}>
           <label className="test-label">
