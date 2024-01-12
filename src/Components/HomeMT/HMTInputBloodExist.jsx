@@ -88,9 +88,9 @@ const HMTInput = () => {
 
     const initialTestState = Object.keys(testParameters).reduce((acc, test) => {
         acc[test] = false; // For checkbox state
-        testParameters[test].forEach(param => {
+        /*testParameters[test].forEach(param => {
             acc[`${test}_${param}`] = ''; // For parameter input values
-        });
+        });*/
         return acc;
     }, {});
 
@@ -312,17 +312,15 @@ const HMTInput = () => {
                             </div>
                         </div>
                     </div>
-
-                    {/* Blood Laboratory Tests Section */}
+                {/* Blood Laboratory Tests Section */}
                 </div>
                 <div className="hmti-tests">
-                        <div className="hmti-tests-title">Blood Laboratory Tests</div>
-                        <img src={underline} alt="underline" />
-                        <div className="hmti-tests-row">
+                    <div className="hmti-tests-title">Blood Laboratory Tests</div>
+                    <img src={underline} alt="underline" />
+                    <div className="hmti-tests-row">
                         {Object.keys(initialTestState || {}).map(testName => renderTestInput(testName))}
-
-                        </div>
-                    </div>  
+                    </div>
+                </div>  
             </div>
         </div>
     );

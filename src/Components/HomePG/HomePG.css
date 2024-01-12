@@ -1,61 +1,88 @@
-.mt-column{
+.pg-column{
     display: flex;
     flex-direction: column;
+    margin: auto;
+    width: 50%; 
+    margin: auto; 
+    margin-top: 3.4%; 
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 
+    'Lucida Sans', Arial, sans-serif;
+}
+
+.pg-welcome-container{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
     align-items: center;
-}
-
-.mt-welcome-container{
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Center items horizontally */
-    width: 100vw; /* Width scales with the viewport width */
-    max-width: 88%; /* Maximum width to prevent it from getting too wide */
-    margin: auto; /* Vertical margin scales with the viewport height */
-    margin-top: 3%; /* Top margin is a percentage of the viewport height */
-    padding: 3vw; /* Padding scales with the viewport width */
+    padding-top: 50px;
+    padding-bottom: 50px;
     background: #fff;
-    border-radius: 25px; /* Border-radius is fixed */
-    gap: clamp(0rem, 15vw, 20px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Box-shadow is fixed */
+    border-radius: 50px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    gap: 20px;
 }
 
-.mt-welcome-container img{
-    width: clamp(10rem, 15vw, 2000px); /* Default size */
-    height: auto; /* Maintain the aspect ratio */
+.pg-welcome-container img{
+    width: 35%;
 }
 
-.mt-welcome-text{
-    color: #18694e;
-    font-size: clamp(1.5rem, 2vw, 30px);
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 
-       'Lucida Sans', Arial, sans-serif;
+.pg-welcome-text{
+    font-size: 35px;
+    font-weight: 600;
+    opacity: 60%;
 }
 
-.mt-choice{
-    margin-top: 1%;
-    margin-bottom: 1%;
-    color: #4d4d4d6c;
-    font-size: clamp(1rem, 2vw, 20px);
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 
-       'Lucida Sans', Arial, sans-serif;
+.pg-choice{
+    display: flex;
+    font-size: 20px;
+    opacity: 25%;
+    justify-content: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
-.mt-row{
+.pg-row{
     display: flex;
     flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100;
+    background-color: aqua;
 }
 
-.mt-view-p-t-r-container{
+.pg-view-p-t-r-container{
     display: flex;
     flex-direction: column;
-    align-items: center; /* Center items horizontally */
-    width: 100vw; /* Width scales with the viewport width */
-    max-width: 8%; /* Maximum width to prevent it from getting too wide */
-    margin: auto; /* Vertical margin scales with the viewport height */
-    margin-top: 3%; /* Top margin is a percentage of the viewport height */
-    padding: 3vw; /* Padding scales with the viewport width */
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    padding-top: 50px;
+    padding-bottom: 50px;
     background: #fff;
-    border-radius: 25px; /* Border-radius is fixed */
-    gap: clamp(0rem, 15vw, 20px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Box-shadow is fixed */
+    border-radius: 50px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    gap: 20px;
+    height: 100%;
+}
+
+.pg-separator img {
+    height: 100%;
+    width: 80%;
+    rotate: 90deg;
+}
+
+.pg-review-t-r-container{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    background: #fff;
+    border-radius: 50px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    gap: 20px;
+    height: 100px;
 }

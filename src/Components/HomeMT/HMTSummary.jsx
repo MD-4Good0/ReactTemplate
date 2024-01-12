@@ -1,9 +1,10 @@
 import React, { useState, useRef, useEffect } from 'react';
 import logo_icon from '../Assets/Logo.png';
+import './HMTSummary.css';
 import { useParams } from 'react-router-dom';
 import { getFirestore, collection, query, where, getDocs, doc, getDoc } from 'firebase/firestore';
 
-const HMTSummary = () => {
+const HDNPID = () => {
 
     const db = getFirestore();
     const { patientId, transactionId, specimenId } = useParams();
@@ -146,9 +147,13 @@ const HMTSummary = () => {
                 <thead>
                   <tr className="hdnpi-patients-header">
                     <th className="hdnpi-p-h">Specimen ID</th>
+                    <div className="hdnpi-p-h-separator">|</div>
                     <th className="hdnpi-p-h">Test</th>
+                    <div className="hdnpi-p-h-separator">|</div>
                     <th className="hdnpi-p-h">Parameter</th>
+                    <div className="hdnpi-p-h-separator">|</div>
                     <th className="hdnpi-p-h">Result</th>
+                    <div className="hdnpi-p-h-separator">|</div>
                     <th className="hdnpi-p-h">SI Unit</th>
                   </tr>
                 </thead>
@@ -161,20 +166,39 @@ const HMTSummary = () => {
                       const si_unit = siUnitData && siUnitData[param];
                       return (
                         <tr className="hdnpi-patients-row" key={`${index}-${paramIndex}`}>
-                          {paramIndex === 0 && <td className="hdnpi-p-h-cell" rowSpan={numRows}>{testResult.testData.specimenid}</td>}
-                          {paramIndex === 0 && <td className="hdnpi-p-h-cell" rowSpan={numRows}>{getBiggerTest(testResult.test)}</td>}
-                          <td className="hdnpi-p-h-cell-param">{param}</td>
-                          <td className="hdnpi-p-h-cell-param">{value}</td>
-                          <td className="hdnpi-p-h-cell-param">{si_unit !== undefined ? si_unit : ''}</td>
+                          {paramIndex === 0 ? (
+                            <>
+                              <td className="hdnpi-p-h-cell" rowSpan={numRows}>{testResult.testData.specimenid}</td>
+                              <div className="hdnpi-p-h-separator">|</div>
+                              <td className="hdnpi-p-h-cell" rowSpan={numRows}>{getBiggerTest(testResult.test)}</td>
+                              <div className="hdnpi-p-h-separator">|</div>
+                            </>
+                          ) : (
+                            <>
+                              <td className="hdnpi-p-h-cell"></td>
+                              <div className="hdnpi-p-h-separator">|</div>
+                              <td className="hdnpi-p-h-cell"></td>
+                              <div className="hdnpi-p-h-separator">|</div>
+                            </>
+                          )}
+                          <td className="hdnpi-p-h-cell">{param}</td>
+                          <div className="hdnpi-p-h-separator">|</div>
+                          <td className="hdnpi-p-h-cell">{value}</td>
+                          <div className="hdnpi-p-h-separator">|</div>
+                          <td className="hdnpi-p-h-cell">{si_unit !== undefined ? si_unit : ''}</td>
                         </tr>
                       );
                     })
                   })}
-                </tbody>
+              </tbody>
               </table>
           </div>
+
         </div>
-  
+        <div className="hmts-buttons">
+          <button className="">Finish</button>
+          <button className="">Continue Editing</button>
+        </div>            
         <div className="dn-tagline">- Accurate, Fast, and Reliable Laboratory Results -</div>
       </div>
     );
@@ -237,4 +261,4 @@ switch (testCode) {
 }
 };
 
-export default HMTSummary;
+export default HDNPID;
