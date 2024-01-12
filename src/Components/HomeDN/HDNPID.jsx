@@ -147,9 +147,13 @@ const HDNPID = () => {
                 <thead>
                   <tr className="hdnpi-patients-header">
                     <th className="hdnpi-p-h">Specimen ID</th>
+                    <div className="hdnpi-p-h-separator">|</div>
                     <th className="hdnpi-p-h">Test</th>
+                    <div className="hdnpi-p-h-separator">|</div>
                     <th className="hdnpi-p-h">Parameter</th>
+                    <div className="hdnpi-p-h-separator">|</div>
                     <th className="hdnpi-p-h">Result</th>
+                    <div className="hdnpi-p-h-separator">|</div>
                     <th className="hdnpi-p-h">SI Unit</th>
                   </tr>
                 </thead>
@@ -162,16 +166,31 @@ const HDNPID = () => {
                       const si_unit = siUnitData && siUnitData[param];
                       return (
                         <tr className="hdnpi-patients-row" key={`${index}-${paramIndex}`}>
-                          {paramIndex === 0 && <td className="hdnpi-p-h-cell" rowSpan={numRows}>{testResult.testData.specimenid}</td>}
-                          {paramIndex === 0 && <td className="hdnpi-p-h-cell" rowSpan={numRows}>{getBiggerTest(testResult.test)}</td>}
-                          <td className="hdnpi-p-h-cell-param">{param}</td>
-                          <td className="hdnpi-p-h-cell-param">{value}</td>
-                          <td className="hdnpi-p-h-cell-param">{si_unit !== undefined ? si_unit : ''}</td>
+                          {paramIndex === 0 ? (
+                            <>
+                              <td className="hdnpi-p-h-cell" rowSpan={numRows}>{testResult.testData.specimenid}</td>
+                              <div className="hdnpi-p-h-separator">|</div>
+                              <td className="hdnpi-p-h-cell" rowSpan={numRows}>{getBiggerTest(testResult.test)}</td>
+                              <div className="hdnpi-p-h-separator">|</div>
+                            </>
+                          ) : (
+                            <>
+                              <td className="hdnpi-p-h-cell"></td>
+                              <div className="hdnpi-p-h-separator">|</div>
+                              <td className="hdnpi-p-h-cell"></td>
+                              <div className="hdnpi-p-h-separator">|</div>
+                            </>
+                          )}
+                          <td className="hdnpi-p-h-cell">{param}</td>
+                          <div className="hdnpi-p-h-separator">|</div>
+                          <td className="hdnpi-p-h-cell">{value}</td>
+                          <div className="hdnpi-p-h-separator">|</div>
+                          <td className="hdnpi-p-h-cell">{si_unit !== undefined ? si_unit : ''}</td>
                         </tr>
                       );
                     })
                   })}
-                </tbody>
+              </tbody>
               </table>
           </div>
         </div>

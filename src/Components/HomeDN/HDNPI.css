@@ -8,7 +8,7 @@
     width: 90%;
     background: #fff;
     padding-bottom: 30px;
-    border-radius: 50px; /* Preserved original border-radius */
+    border-radius: 25px; /* Preserved original border-radius */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
@@ -62,7 +62,7 @@
 .hdnpi-patient-detailed-info-header-row {
     width: 100%;
     background: #edf5f3;
-    border-radius: 40px;
+    border-radius: 25px;
     margin-top: clamp(2rem, 2vw, 100px);
     margin-bottom: 1%;
 }
@@ -74,7 +74,7 @@
     border: 1px solid #ccc;
     border-radius: 40px;
     background-color: #ffffff;
-    padding: 5px 5px 5px 5px;
+    padding: 5px 0 5px 0;
     max-width: 100%;
     margin: auto;
 }
@@ -99,8 +99,19 @@
 .hdnpi-patients-table-container {
     display: block;
     max-height: 300px;
-    overflow-y: auto;
-    width: 100%; /* Set to full width */
+    width: 100%;
+}
+
+.hdnpi-patients-table-container button{
+    border-radius: 25px;
+    border: none;
+    background: none;
+}
+
+.hdnpi-patients-table-container button:hover{
+    border: none;
+    background: #cae3dd;
+    cursor: pointer;
 }
 
 .add-padding {
@@ -128,17 +139,17 @@
 .hdnpi-patients-row {
     display: flex;
     flex-direction: center;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     padding: 10px 0px;
     max-width: 100%;
     border-bottom: 1px solid #ccc; /* Added to match the screenshot */
+
 }
 
 .hdnpi-p-h-cell {
-    text-align: center;
     padding: 8px;
-    font-size: 16px; /* Adjust font size as needed */
+    font-size: 16px;
     color: #838383;
 }
 
@@ -154,71 +165,11 @@
     background: none;
 }
 
-.hdnpi-p-parameter {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 5px;
-}
-
-.hdnpi-p-h-row-param {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    margin-bottom: 5px;
-}
-
-.hdnpi-p-h-cell-param, .hdnpi-p-h-cell-result, .hdnpi-p-h-cell-si-unit {
-    text-align: right; /* Align SI Unit text to the right */
-}
-
-.hdnpi-p-h-separator-param {
-    opacity: 25%;
-    margin: 0 5px;
-}
-
-/* Add styles for the cells to handle the borders and spacing */
-.hdnpi-table td,
-.hdnpi-table th {
-    padding: 8px; /* Consistent padding for all cells */
-    text-align: left; /* Align text to the left for all cells */
-    border: 1px solid #ddd; /* Consistent border for all cells */
-}
-
 .hdnpi-table {
     width: 100%;
     border-collapse: collapse;
 }
 
-/* Add styles for alternating row background colors if desired */
-.hdnpi-table tr:nth-child(even) {
-    background-color: #f2f2f2;
-}
-
-/* Ensure that the table header has the same style as the cells */
-.hdnpi-patients-header th {
-    background-color: #f2f2f2;
-    text-align: center; /* Center header text */
-}
-
-/* Style for the SI Unit */
-.hdnpi-p-h-cell-si-unit {
-    width: auto;
-    padding: 0 10px;
-    text-align: right; /* Align SI Unit text to the right */
-    background: #fff; /* White background for SI Unit */
-}
-
-/* Style for the Result */
-.hdnpi-p-h-cell-result {
-    width: auto;
-    padding: 0 10px;
-    text-align: right; /* Align Result text to the right */
-    background: #fff; /* White background for Result */
-}
-
-/* Tagline style at the bottom */
 .dn-tagline {
     text-align: center;
     font-size: 18px;
@@ -226,10 +177,3 @@
     color: #777;
 }
 
-.hdnpi-p-h-cell[rowspan] {
-    vertical-align: top; /* Align content to the top for cells that span multiple rows */
-}
-
-.hdnpi-patients-row td {
-    vertical-align: middle; /* Align content to the middle vertically */
-}

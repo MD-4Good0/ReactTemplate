@@ -285,8 +285,8 @@ const HMTFeces = () => {
                             </div>
 
                             <div className="hmti-checklist-row">
-                                <div className="hmti-c-r-buttons">
-                                    <button className="hmti-c-r-next" OnClick={handleSwitchSummary}>Save</button>
+                            <div className="hmti-c-r-buttons">
+                                    <button className="hmti-c-r-next" onClick={handleSwitchSummary}>Save</button>
                                 </div>
                                 <div className="hmti-c-r-buttons">
                                     <button className="hmti-c-r-next-clear">Clear</button>

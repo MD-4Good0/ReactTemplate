@@ -87,7 +87,7 @@ const HomeMT = () => {
                     </div>
 
                     <div className="mt-test-results-button">
-                        {!noUnfinishedTestResults ? (
+                        {noUnfinishedTestResults ? (
                             <div className="mt-test-results">
                                 <img src={finished_tr_icon} alt="u-t-r"></img>
                                 <div className="mt-t-r-finished">All Tests Complete</div>
