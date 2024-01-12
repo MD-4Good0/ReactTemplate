@@ -195,7 +195,6 @@
 
 .hmti-test-input input[type="text"] {
     margin-left: 10px;
-    flex-grow: 1; /* To make the result input take up the remaining space */
 }
 
 .test-section {
@@ -220,11 +219,4 @@
   .parameter-label {
     display: block; /* Adjust as needed for your layout */
   }
-  
-  input[type="text"] {
-    width: calc(100% - 20px); /* Adjust width as needed */
-    padding: 5px;
-    margin-bottom: 5px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
+
