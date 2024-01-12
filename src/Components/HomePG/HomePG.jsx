@@ -1,6 +1,8 @@
 import './HomePG.css';
 import logo_icon from '../Assets/Logo.png';
 import separator from '../Assets/Underline.png';
+import past_results from '../Assets/PastResults.png';
+import review_test_results from '../Assets/ReviewTestResults.png';
 
 const HomeLC = () => {
     return (
@@ -14,7 +16,7 @@ const HomeLC = () => {
 
             <div className="pg-row">
                 <div className="pg-view-p-t-r-container">
-                    {/*img of view past test results*/}
+                    <img src={past_results} alt="past_results"></img>
                     <div className="pg-view-p-t-r-text">View Past Test Results</div>
                 </div>
 
@@ -23,9 +25,9 @@ const HomeLC = () => {
                 </div>
 
                 <div className="pg-review-t-r-container">
-                    {/*img of view past test results*/}
+                    <img src={review_test_results} alt="review_test_results"></img>
                     <div className="pg-review-t-r-text">Review Test Results</div>
-                    <div className="pg-review-t-r-count">You have - unreviewed test results</div>
+                    <div className="pg-review-t-r-count">(You have - unreviewed test results)</div>
                 </div>
             </div>
         </div>
