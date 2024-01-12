@@ -4,10 +4,9 @@ import logo_icon from '../Assets/Logo.png';
 import underline from '../Assets/Underline.png';
 import './HMTInput.css';
 import { getFirestore, collection, query, where, getDocs, doc, getDoc } from 'firebase/firestore';
-import { redirect } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 
-const HMTInput = () => {
+const HMTUrine = () => {
     const navigate = useNavigate();
 
     const db = getFirestore();
@@ -104,8 +103,8 @@ const HMTInput = () => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
-    const handleSwitchUrine = () => {
-        navigate("/input_urine");
+    const handleSwitchFeces = (e) => {
+        navigate("/input_feces");
     };
 
     const renderTestInput = (testName) => (
@@ -287,7 +286,7 @@ const HMTInput = () => {
 
                             <div className="hmti-checklist-row">
                                 <div className="hmti-c-r-buttons">
-                                    <button className="hmti-c-r-next" onClick={handleSwitchUrine}>Next</button>
+                                    <button className="hmti-c-r-next" onClick={handleSwitchFeces}>Next</button>
                                 </div>
                                 <div className="hmti-c-r-buttons">
                                     <button className="hmti-c-r-next-clear">Clear</button>
@@ -311,4 +310,4 @@ const HMTInput = () => {
     );
 };
 
-export default HMTInput;
+export default HMTUrine;
