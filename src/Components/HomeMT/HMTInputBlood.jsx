@@ -6,12 +6,31 @@ import './HMTInput.css';
 
 const HMTInput = () => {
     const testParameters = {
-        cbc: ["whitebloodcell", "redbloodcell", "hematocrit", "hemoglobin", "mcv"],
-        bloodtyping: ["whitebloodcell", "redbloodcell", "hematocrit", "hemoglobin", "mcv"],
-        esr: ["whitebloodcell", "redbloodcell", "hematocrit", "hemoglobin", "mcv"],
-        cbc: ["whitebloodcell", "redbloodcell", "hematocrit", "hemoglobin", "mcv"],
-        cbc: ["whitebloodcell", "redbloodcell", "hematocrit", "hemoglobin", "mcv"],
-        cbc: ["whitebloodcell", "redbloodcell", "hematocrit", "hemoglobin", "mcv"],
+        cbc: ["whitebloodcell", "redbloodcell", "hematocrit", "hemoglobin", "mcv", "mch", "mchc", "plateletcount", "rdw", "neutrophil", "lymphocyte", "eosonophil", "monocyte", "basophil"],
+        bloodtyping: ["blood group", "rhfactor"],
+        esr: ["esr"],
+        fbs: ["fbs"],
+        cholesterol: ["cholesterol"],
+        triglyceride: ["triglyceride"],
+        hdl: ["hdl"],
+        ldl: ["ldl"],
+        vldl: ["vldl"],
+        bun: ["bun"],
+        creatine: ["creatine"],
+        bua: ["bua"],
+        ast: ["ast"],
+        alt: ["alt"],
+        alp: ["alp"],
+        sodium: ["sodium"],
+        potassium: ["potassium"],
+        "calcium": "FALSE",
+        "urinalysis": "FALSE",
+        "pregnancy_test": "FALSE",
+        "fecalysis": "FALSE",
+        "fobt": "FALSE",
+        "aso": "FALSE",
+        "dengue_antibody": "FALSE",
+        "dengue_antigen": "FALSE"
 
         // Add other tests and their parameters here
         // bloodtyping: ["param1", "param2", ...],
