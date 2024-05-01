@@ -27,25 +27,10 @@ const Header = () => {
     return (
         <div className='header'>
             <div className="left-stuff">
-                <div onClick={() => {
-                    if (window.location.pathname !== '/medlabview/') {
-                        navigate(-1);
-                    }
-                    }}>
-                    <div className="back">
-                        <button><img src={back_icon} alt="Back" /></button>
-                    </div>
-                </div>
 
                 <div className="title-short">MLV DTP</div>
                 <div className="title">MLV Diagnostic Test Portal</div>
 
-
-                <div onClick={() => navigate(+1)}> 
-                    <div className="forward"> 
-                        <button><img src={forward_icon} alt="Forward" /></button> 
-                    </div> 
-                </div> 
             </div>
 
             <div className="right-stuff">

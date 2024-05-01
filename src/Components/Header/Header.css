@@ -16,7 +16,7 @@
 }
 
 .left-stuff{
-    padding-left: 30px;
+    padding-left: 60px;
     display: flex;
     align-items: center;
 }
@@ -28,7 +28,7 @@
 }
 
 .title-lo-move{
-    padding-left: 92px;
+    padding-left: 60px;
 }
 
 .title-short, .title-short-lo {

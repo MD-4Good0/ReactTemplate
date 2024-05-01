@@ -11,6 +11,7 @@ const HDNPID = () => {
     const [patientData, setPatientData] = useState(null);
     const [testData, setTestData] = useState(null);
     const [siUnitData, setSiUnitData] = useState(null);
+
     const [isScrollbarVisible, setIsScrollbarVisible] = useState(false);
     const tableContainerRef = useRef(null);
   
@@ -28,7 +29,7 @@ const HDNPID = () => {
       return () => {
         window.removeEventListener('resize', checkForScrollbar); // Clean up listener on unmount
       };
-    }, [testData]);
+    }, [siUnitData]);
   
     useEffect(() => {
         const fetchPatientAndTestData = async () => {
@@ -145,7 +146,7 @@ const HDNPID = () => {
             <div className="hdnpi-patient-detailed-info-header-row">
               <table className="hdnpi-table">
                 <thead>
-                  <tr className="hdnpi-patients-header">
+                  <tr className="hdnpid-patients-header">
                     <th className="hdnpi-p-h">Specimen ID</th>
                     <div className="hdnpi-p-h-separator">|</div>
                     <th className="hdnpi-p-h">Test</th>
@@ -157,7 +158,7 @@ const HDNPID = () => {
                     <th className="hdnpi-p-h">SI Unit</th>
                   </tr>
                 </thead>
-                <tbody className="hdnpi-patients-table-container">
+                <tbody className={`hdnpid-patients-table-container ${!isScrollbarVisible ? 'add-padding-1' : ''}`} ref={tableContainerRef}>
                   {testData && testData.map((testResult, index) => {
                     const parameters = Object.entries(testResult.testData).filter(([key]) => !['specimenid', 'testid', 'id'].includes(key));
                     const numRows = parameters.length; // Count the number of parameters for this test
@@ -168,24 +169,24 @@ const HDNPID = () => {
                         <tr className="hdnpi-patients-row" key={`${index}-${paramIndex}`}>
                           {paramIndex === 0 ? (
                             <>
-                              <td className="hdnpi-p-h-cell" rowSpan={numRows}>{testResult.testData.specimenid}</td>
+                              <td className="hdnpid-p-h-cell" rowSpan={numRows}>{testResult.testData.specimenid}</td>
                               <div className="hdnpi-p-h-separator">|</div>
-                              <td className="hdnpi-p-h-cell" rowSpan={numRows}>{getBiggerTest(testResult.test)}</td>
+                              <td className="hdnpid-p-h-cell" rowSpan={numRows}>{getBiggerTest(testResult.test)}</td>
                               <div className="hdnpi-p-h-separator">|</div>
                             </>
                           ) : (
                             <>
-                              <td className="hdnpi-p-h-cell"></td>
+                              <td className="hdnpid-p-h-cell"></td>
                               <div className="hdnpi-p-h-separator">|</div>
-                              <td className="hdnpi-p-h-cell"></td>
+                              <td className="hdnpid-p-h-cell"></td>
                               <div className="hdnpi-p-h-separator">|</div>
                             </>
                           )}
-                          <td className="hdnpi-p-h-cell">{param}</td>
+                          <td className="hdnpid-p-h-cell">{param}</td>
                           <div className="hdnpi-p-h-separator">|</div>
-                          <td className="hdnpi-p-h-cell">{value}</td>
+                          <td className="hdnpid-p-h-cell">{value}</td>
                           <div className="hdnpi-p-h-separator">|</div>
-                          <td className="hdnpi-p-h-cell">{si_unit !== undefined ? si_unit : ''}</td>
+                          <td className="hdnpid-p-h-cell">{si_unit !== undefined ? si_unit : ''}</td>
                         </tr>
                       );
                     })

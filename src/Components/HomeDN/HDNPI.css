@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: column;
     margin: auto;
-    margin-top: 4%;
+    margin-top: 2.5%;
     justify-content: center;
     align-items: center;
     width: 90%;
@@ -32,7 +32,8 @@
 
 .hdnpi-info-container {
     width: 90%;
-    margin-bottom: 1%;
+    margin-bottom: -0.5%;
+    height: 578px;
 }
 
 .hdnpi-patient-info-header-row {
@@ -50,13 +51,12 @@
 
 .hdnpi-p-i-h-t-indiv {
     text-align: start;
-    padding: 10px;
     margin-left: 30px;
     margin-right: 30px;
     opacity: 90%;
-    font-size: clamp(0.75rem, 2vw, 16.4px);
+    font-size: 20px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    color: #6f6f6f;
+    color: #6f6f6f9f;
 }
 
 .hdnpi-patient-detailed-info-header-row {
@@ -77,6 +77,20 @@
     padding: 5px 0 5px 0;
     max-width: 100%;
     margin: auto;
+}
+
+.hdnpid-patients-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 40px;
+    background-color: #ffffff;
+    padding: 5px 5px 5px 5px;
+    max-width: 100%;
+    margin: auto;
+    overlay: overlay;
+    scrollbar-gutter: stable both-edges;
 }
 
 .hdnpi-p-h {
@@ -100,6 +114,15 @@
     display: block;
     max-height: 300px;
     width: 100%;
+    scrollbar-gutter: stable both-edges;
+}
+
+.hdnpid-patients-table-container {
+    display: block;
+    max-height: 410px;
+    overflow: overlay;
+    scrollbar-gutter: stable both-edges;
+    width: 100%;
 }
 
 .hdnpi-patients-table-container button{
@@ -118,16 +141,16 @@
     padding-right: 5.5px;
 }
 
-.hdnpi-patients-table-container::-webkit-scrollbar {
+.hdnpi-patients-table-container::-webkit-scrollbar, .hdnpid-patients-table-container::-webkit-scrollbar {
     width: 6px;
 }
 
-.hdnpi-patients-table-container::-webkit-scrollbar-thumb {
+.hdnpi-patients-table-container::-webkit-scrollbar-thumb, .hdnpid-patients-table-container::-webkit-scrollbar-thumb {
     background: #c4c4c4;
     border-radius: 5px;
 }
 
-.hdnpi-patients-table-container::-webkit-scrollbar-thumb:hover {
+.hdnpi-patients-table-container::-webkit-scrollbar-thumb:hover, .hdnpid-patients-table-container::-webkit-scrollbar-thumb:hover {
     background: #9e9e9e;
 }
 
@@ -139,12 +162,11 @@
 .hdnpi-patients-row {
     display: flex;
     flex-direction: center;
-    justify-content: space-around;
     align-items: center;
     padding: 10px 0px;
-    max-width: 100%;
-    border-bottom: 1px solid #ccc; /* Added to match the screenshot */
-
+    max-height: 300px;
+    overflow: auto;
+    position: relative;
 }
 
 .hdnpi-p-h-cell {
@@ -154,11 +176,11 @@
 }
 
 .hdnpi-p-h-cell-hdnpi {
-    width: 1000px;
+    width: 382.2px;
     text-align: center;
     padding: 0 0px;
     margin: 0 1%;
-    font-size: clamp(0rem, 2vw, 21px);
+    font-size: clamp(0rem, 2vw, 20px);
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     color: #838383;
     border: none;
@@ -177,3 +199,12 @@
     color: #777;
 }
 
+.hdnpid-p-h-cell {
+    display: flex;
+    width: 19.56%;
+    justify-content: center;
+    font-size: 16px;
+    color: #838383;
+    font-size: clamp(0rem, 2vw, 20px);
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
