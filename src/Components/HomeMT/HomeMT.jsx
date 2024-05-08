@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import './HomeMT.css';
 
 import logo_icon from '../Assets/Logo.png';
-import search_icon from '../Assets/SearchButton.png';
+import go_icon from '../Assets/GoButton.png';
 import unfinished_tr_icon from '../Assets/UnfinishedTestResults.png';
 import finished_tr_icon from '../Assets/FinishedTestResults.png';
 
@@ -114,7 +114,7 @@ const HomeMT = () => {
                             <div className="mt-search"> 
                                 <input type="id" placeholder="Enter Patient ID Number" value={searchInput} onChange={handleInputChange} />
                                 <div className="mt-search-button" onClick={handleSearch}>
-                                    <button><img src={search_icon} alt="search"></img></button>
+                                    <button><img src={go_icon} alt="search"></img></button>
                                 </div>
                             </div>
                             <div className="mt-patients">

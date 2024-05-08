@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 
 import logo_icon from '../Assets/Logo.png';
 import underline from '../Assets/Underline.png';
-import './HMTInput.css';
+import './HMTInputUrine.css';
 import { getFirestore, collection, query, where, getDocs, doc, getDoc } from 'firebase/firestore';
 import { useNavigate, useParams } from 'react-router-dom';
 
@@ -134,6 +134,14 @@ const HMTUrine = () => {
             </div>
 
             <div className="hmti-row">
+                <div className="hmti-tests">
+                    <div className="hmti-tests-title">Blood Laboratory Tests</div>
+                    <img src={underline} alt="underline" />
+                    <div className="hmti-tests-row">
+                    {Object.keys(initialTestState || {}).map(testName => renderTestInput(testName))}
+
+                    </div>
+                </div> 
                 <div className="hmti-column">
                     <div className="hmti-basic-info">
                         {/* Basic Information Section */}
@@ -284,15 +292,7 @@ const HMTUrine = () => {
                     </div>
 
                     {/* Blood Laboratory Tests Section */}
-                </div>
-                <div className="hmti-tests">
-                        <div className="hmti-tests-title">Blood Laboratory Tests</div>
-                        <img src={underline} alt="underline" />
-                        <div className="hmti-tests-row">
-                        {Object.keys(initialTestState || {}).map(testName => renderTestInput(testName))}
-
-                        </div>
-                    </div>  
+                </div> 
             </div>
         </div>
     );

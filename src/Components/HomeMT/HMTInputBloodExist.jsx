@@ -2,7 +2,7 @@ import React, { useState, useRef } from 'react';
 
 import logo_icon from '../Assets/Logo.png';
 import underline from '../Assets/Underline.png';
-import './HMTInput.css';
+import './HMTInputBlood.css';
 import { initializeApp } from 'firebase/app';
 import { getFirestore, collection, addDoc , setDoc, doc } from 'firebase/firestore';
 import { redirect } from 'react-router-dom';
@@ -42,32 +42,44 @@ const HMTInput = () => {
       };
 
     const testParameters = {
-        cbc: ["whitebloodcell", "redbloodcell", "hematocrit", "hemoglobin", "mcv", "mch", "mchc", "plateletcount", "rdw", "neutrophil", "lymphocyte", "eosonophil", "monocyte", "basophil"],
-        bloodtyping: ["blood group", "rhfactor"],
-        esr: ["esr"],
-        fbs: ["fbs"],
-        cholesterol: ["cholesterol"],
-        triglyceride: ["triglyceride"],
-        hdl: ["hdl"],
-        ldl: ["ldl"],
-        vldl: ["vldl"],
-        bun: ["bun"],
-        creatine: ["creatine"],
-        bua: ["bua"],
-        ast: ["ast"],
-        alt: ["alt"],
-        alp: ["alp"],
-        sodium: ["sodium"],
-        potassium: ["potassium"],
-        calcium: ["calcium"],
-        aso: ["aso"],
-        dengue_antibody: ["igg", "igm"],
-        dengue_antigen: ["ns1"],
+            "Alanine Transaminase": ["alt"],
+            "Alkaline Phosphatase": ["alp"],
+            "Antistreptolysin O": ["aso"],
+            "Aspartate Aminotransferase": ["ast"],
+            "Basophil": [],
+            "Blood group": ["rhfactor"],
+            "Blood Urea Nitrogen": ["bun"],
+            "Blood Uric Acid": ["bua"],
+            "Calcium": ["calcium"],
+            "Cholesterol": ["cholesterol"],
+            "Complete Blood Count": [
+                "Basophil",
+                "Eosinophil",
+                "Hematocrit",
+                "Hemoglobin",
+                "Lymphocyte",
+                "MCH (Mean Corpuscular Hemoglobin)",
+                "MCHC (Mean Corpuscular Hemoglobin Concentration)",
+                "MCV (Mean Corpuscular Volume)",
+                "Monocyte",
+                "Neutrophil",
+                "Platelet Count",
+                "RDW (Red Cell Distribution Width)",
+                "Red Blood Cell",
+                "White Blood Cell"
+            ],
+            "Creatine": ["creatine"],
+            "Dengue Antibody": ["igg", "igm"],
+            "Dengue Antigen": ["ns1"],
+            "Erythrocyte Sedimentation Rate": ["esr"],
+            "Fasting Blood Sugar": ["fbs"],
+            "High-Density Lipoprotein": ["hdl"],
+            "Low-Density Lipoprotein": ["ldl"],
+            "Potassium": ["potassium"],
+            "Sodium": ["sodium"],
+            "Triglyceride": ["triglyceride"],
+            "Very-Low-Density Lipoprotein": ["vldl"]
 
-        // Add other tests and their parameters here
-        // bloodtyping: ["param1", "param2", ...],
-        // esr: ["param1", "param2", ...],
-        // ...
     };
 
     const clearFormData = () => {
@@ -123,13 +135,13 @@ const HMTInput = () => {
     const renderTestInput = (testName) => (
         <div className="test-section" key={testName}>
           <label className="test-label">
-            {testName.toUpperCase()}:
             <input
-              type="checkbox"
-              name={testName}
-              checked={formData[testName]}
-              onChange={handleCheckboxChange}
+                type="checkbox"
+                name={testName}
+                checked={formData[testName]}
+                onChange={handleCheckboxChange}
             />
+            <div className="testname">{testName}</div>
           </label>
           {formData[testName] && (
             <div className="test-parameters">
@@ -164,6 +176,15 @@ const HMTInput = () => {
             </div>
 
             <div className="hmti-row">
+                <div className="hmti-tests">
+                    <div className="hmti-tests-title">Blood Laboratory Tests</div>
+                    <img src={underline} alt="underline" />
+                    <div className="hmti-for-scrollbar">
+                        <div className="hmti-tests-row">
+                            {Object.keys(initialTestState || {}).map(testName => renderTestInput(testName))}
+                        </div>
+                    </div>
+                </div>  
                 <div className="hmti-column">
                     <div className="hmti-basic-info">
                         {/* Basic Information Section */}
@@ -277,6 +298,7 @@ const HMTInput = () => {
                                     />
                                 </div>
                             </div>
+
                             {/* Date & Time Received */}
                             <div className="hmti-checklist-row">
                                 Date & Time Received:
@@ -289,6 +311,7 @@ const HMTInput = () => {
                                     />
                                 </div>
                             </div>
+                            
                             {/* Specimen Number */}
                             <div className="hmti-checklist-row">
                                 Specimen Number:
@@ -314,13 +337,6 @@ const HMTInput = () => {
                     </div>
                 {/* Blood Laboratory Tests Section */}
                 </div>
-                <div className="hmti-tests">
-                    <div className="hmti-tests-title">Blood Laboratory Tests</div>
-                    <img src={underline} alt="underline" />
-                    <div className="hmti-tests-row">
-                        {Object.keys(initialTestState || {}).map(testName => renderTestInput(testName))}
-                    </div>
-                </div>  
             </div>
         </div>
     );
