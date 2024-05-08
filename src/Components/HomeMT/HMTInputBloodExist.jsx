@@ -2,7 +2,7 @@ import React, { useState, useRef } from 'react';
 
 import logo_icon from '../Assets/Logo.png';
 import underline from '../Assets/Underline.png';
-import './HMTInputBlood.css';
+import './HMTInput.css';
 import { initializeApp } from 'firebase/app';
 import { getFirestore, collection, addDoc , setDoc, doc } from 'firebase/firestore';
 import { redirect } from 'react-router-dom';
@@ -286,51 +286,54 @@ const HMTInput = () => {
                         <div className="hmti-checklist-title">Checklist Page</div>
                         <img src={underline} alt="underline"/>
                         <div className="hmti-checklist-start">
-                            {/* Date & Time Requested */}
-                            <div className="hmti-checklist-row">
-                                Date & Time Requested:
-                                <div className="requested">
-                                    <input 
-                                        type="datetime-local" 
-                                        name="dateRequested" 
-                                        value={formData.dateRequested} 
-                                        onChange={handleInputChange} 
-                                    />
+                            <div className="hmti-checklist-left">
+                                {/* Date & Time Requested */}
+                                <div className="hmti-checklist-row">
+                                    Date & Time Requested:
+                                    <div className="requested">
+                                        <input 
+                                            type="datetime-local" 
+                                            name="dateRequested" 
+                                            value={formData.dateRequested} 
+                                            onChange={handleInputChange} 
+                                        />
+                                    </div>
+                                </div>
+                                {/* Date & Time Received */}
+                                <div className="hmti-checklist-row">
+                                    Date & Time Received:
+                                    <div className="received">
+                                        <input 
+                                            type="datetime-local" 
+                                            name="dateReceived" 
+                                            value={formData.dateReceived} 
+                                            onChange={handleInputChange} 
+                                        />
+                                    </div>
                                 </div>
                             </div>
 
-                            {/* Date & Time Received */}
-                            <div className="hmti-checklist-row">
-                                Date & Time Received:
-                                <div className="received">
-                                    <input 
-                                        type="datetime-local" 
-                                        name="dateReceived" 
-                                        value={formData.dateReceived} 
-                                        onChange={handleInputChange} 
-                                    />
+                            <div className="hmti-checklist-right">
+                                {/* Specimen Number */}
+                                <div className="hmti-checklist-row">
+                                    Specimen Number:
+                                    <div className="specimen_number">
+                                        <input 
+                                            type="text" 
+                                            name="specimenNumber" 
+                                            value={formData.specimenNumber} 
+                                            onChange={handleInputChange} 
+                                        />
+                                    </div>
                                 </div>
-                            </div>
-                            
-                            {/* Specimen Number */}
-                            <div className="hmti-checklist-row">
-                                Specimen Number:
-                                <div className="specimen_number">
-                                    <input 
-                                        type="text" 
-                                        name="specimenNumber" 
-                                        value={formData.specimenNumber} 
-                                        onChange={handleInputChange} 
-                                    />
-                                </div>
-                            </div>
 
-                            <div className="hmti-checklist-row">
-                                <div className="hmti-c-r-buttons">
-                                    <button className="hmti-c-r-next" onClick={handleNextButtonClick}>Next</button>
-                                </div>
-                                <div className="hmti-c-r-buttons">
-                                    <button className="hmti-c-r-next-clear" onClick={clearFormData}>Clear</button>
+                                <div className="hmti-checklist-row-buttons">
+                                    <div className="hmti-c-r-buttons-1">
+                                        <button className="hmti-c-r-next-clear" onClick={clearFormData}>Clear</button>
+                                    </div>
+                                    <div className="hmti-c-r-buttons-2">
+                                        <button className="hmti-c-r-next" onClick={handleNextButtonClick}>Next</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>

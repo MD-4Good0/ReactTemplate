@@ -122,7 +122,7 @@ const HDNPID = () => {
       }, [db]);
 
     return (
-      <div className="hdnpi-container">
+      <div className="hmts-container">
         <div className="hdnpi-title">
           <img src={logo_icon} alt="Logo" />
           <div>Laboratory Test Portal</div>
@@ -196,8 +196,8 @@ const HDNPID = () => {
 
         </div>
         <div className="hmts-buttons">
-          <button className="">Finish</button>
-          <button className="">Continue Editing</button>
+          <button className="continue">Continue Editing</button>
+          <button className="finish">Finish</button>
         </div>            
         <div className="dn-tagline">- Accurate, Fast, and Reliable Laboratory Results -</div>
       </div>
