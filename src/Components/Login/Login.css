@@ -1,3 +1,15 @@
+.font-link {
+    font-family: 'Poppins', cursive;
+  }
+
+.all-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10vh;
+    gap: 140px;
+}
+
 .login-container{
     display: flex;
     flex-direction: column;
@@ -5,10 +17,11 @@
     margin-top: 8%;
     justify-content: center;
     align-items: center;   
-    width: clamp(30rem, 10vw, 520px);
-    background: #fff;
+    width: 470px;
+    height: 700px;
+    background: #ffffffb5;
     padding-bottom: 30px;
-    border-radius: 5%;
+    border-radius: 35px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
@@ -16,16 +29,13 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 9px;
-    width: 100%;
-    margin-top: 45px;
+    margin-top: 22px;
 }
 
 .logo img{
-    width: 270px;
+    width: 382px;
 }
 .em-pass{
-    margin-top: 30px;
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -37,36 +47,43 @@
     background: transparent;
     border: none;
     outline: none;
-    color: #000000;
-    font-size: 20px;
+    color: #2B9DC1;
+    font-size: 24px;
+    font-weight: 700;
     padding-left: 20px;
     padding-right: 15px;
-    opacity: 50%;
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 
-       'Lucida Sans', Arial, sans-serif; 
 }
 
 .input{
     display: flex;
     align-items: center;
     margin: auto;
-    width: 370px;
+    width: 408px;
     height: 70px;
-    background: #edf0f6;
-    border-radius: 5px;
+    background: #ffffff;
+    border-radius: 12px;
+    border: 4px solid #95CFE1;
 }
 
 .input input[type="password"]::-ms-reveal {
     display: none;
 }
 
+.input input::placeholder {
+    color:#2B9DC1;
+}
+
 .eyecon {
-    margin-left: -20px;
+    margin-left: -30px;
     margin-right: -20px;
     padding-top: 1px;
     padding-left: 20px;
-    padding-right: 45px;
+    padding-right: 40px;
     width: 45px;
+}
+
+#password {
+    width: 100%;
 }
 
 .eyecon button{
@@ -75,18 +92,13 @@
     background: none;
 }
 
-.eyecon button:hover{
-    border-radius: 100px;
-    background: #cacaca64;
-}
-
 .eyecon img{
-    margin-top: 5%;
-    width: 40px;
+    margin-top: 5px;
+    width: 45px;
 }
 
 .login-button{
-    margin: 40px auto 25px;
+    margin: 20px;
 }
 
 .login-button button{
@@ -94,25 +106,84 @@
 }
 
 .login-button button:hover{
-    display: flex;
-    background-color: #ffffff;
-    border: 2px solid #18694e;
-    border-radius: 50px;
-    color: #18694e;
+    color: #2B9DC1;
+    background-color: #fff;
+    border: 4px solid #2B9DC1
 }
 
 .login-button-text{
     display: flex;
     justify-content: center; 
     align-items: center;
-    width: 260px;
+    width: 412px;
     height: 70px;
     color: #fff;
-    background: #18694e;
-    border-radius: 50px;
-    font-size: 25px;
-    font-weight: 400;
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 
-    'Lucida Sans', Arial, sans-serif;
+    background: #2B9DC1;
+    border-radius: 12px;
+    font-size: 24px;
+    font-weight: 700;
+    font-family:'Poppins';
     cursor: pointer;
+}
+
+.last-row-text {
+    display: flex;
+}
+
+.text {
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-family: 'Poppins';
+    font-size: 18px;
+    font-weight: 700;
+    color: #2B9DC1;
+    margin-bottom: 18px;
+    padding: 5px 10px;
+}
+
+.text:hover {
+    color:#ffffff;
+    border-radius: 12px;
+    background: #2B9DC1;
+}
+
+.first-row {
+    font-family: 'Poppins';
+    font-weight: 700;
+    font-size: 62px;
+    color: white;
+}
+
+.second-row {
+    display: flex;
+    align-items: end;
+    font-family: 'Poppins';
+    font-weight: 700;
+    color: white;
+    margin-top: -70px;
+}
+
+.L,.I,.M,.S {
+    font-size: 124px;
+}
+.ab,.nformation,.anagement,.ystem{
+    font-size: 32px;
+    padding-bottom: 38px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.third-row {
+    margin-top: -40px;
+}
+
+.third-row p{
+    padding: 20px 30px;
+    width: 870px;
+    background: #ffffffb5;
+    font-family: 'Poppins';
+    text-align: justify;
+    border-radius: 15px;
+
 }

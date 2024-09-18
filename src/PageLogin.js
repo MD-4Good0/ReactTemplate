@@ -1,12 +1,14 @@
 import React from "react";
 import Login from './Components/Login/Login';
-import Header from "./Components/Header/HeaderLO";
+import BG from './Components/Background/BG';
+import Footer from './Components/Footer/Footer';
 
 function PageLogin() {
     return(
         <div>
-            <Header/>
             <Login/>
+            <BG/>
+            <Footer />
         </div>
     )
 }

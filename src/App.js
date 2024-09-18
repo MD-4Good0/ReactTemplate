@@ -3,33 +3,22 @@ import React from 'react';
 
 import './App.css';
 import { Routes, Route, Navigate} from "react-router-dom";
-import PageHomeDN from './PageHomeDN';
-import PageHDNPatient from './PageHDNPatient';
-import PageHomeMT from './PageHomeMT';
-import PageHomePG from './PageHomePG';
-import PageAdmin from './PageAdmin';
 import PageLogin from './PageLogin';
-import PageHDNPIDetailed from "./PageHDNPIDetailed";
-import PageHMTUnfinished from "./PageHMTUnfinished";
-import PageHMTInputBloodNew from './PageHMTInputBloodNew';
-import PageHMTInputBloodExist from './PageHMTInputBloodExist';
-import PageHMTInputUrine from './PageHMTInputUrine';
-import PageHMTInputFeces from './PageHMTInputFeces';
-import PageHMTSummary from './PageHMTSummary';
+import PageForget from './PageForget';
 
-Userfront.init("8nwyy85n");
+Userfront.init("jb7ywq8b");
 
 function Home() {
   if (!Userfront.accessToken()) {
     return <PageLogin />;
   } else if (Userfront.user.hasRole("viewer")) {
-    return <PageHomeDN />;
+    return;
   } else if (Userfront.user.hasRole("author")) {
-    return <PageHomeMT />;
+    return;
   } else if (Userfront.user.hasRole("subscriber")) {
-    return <PageHomePG />;
+    return;
   } else if (Userfront.user.hasRole("admin")) {
-    return <PageAdmin />;
+    return;
   }
   return <PageLogin />;
 }
@@ -37,6 +26,7 @@ function Home() {
 function App() {
   return (
     <Routes>
+      <Route path="/forget" element={<PageForget/>}/>
       <Route
         path="*"
         element={
@@ -49,16 +39,6 @@ function App() {
       />
 
       <Route path="/login" element={<PageLogin/>}/>
-      <Route path="/patient/:patientId" element={<PageHDNPatient/>}/>
-      <Route path="/patient/:patientId/:transactionId/:specimenId" element={<PageHDNPIDetailed/>}/>
-      <Route path="/unfinished" element={<PageHMTUnfinished/>}/>
-      <Route path="/input_urine/:patientId" element={<PageHMTInputUrine/>}/>
-      <Route path="/input_feces/:patiendId" element={<PageHMTInputFeces/>}/>
-      <Route path="/input_blood/:patientId" element={<PageHMTInputBloodExist/>}/>
-      <Route path="/input_blood" element={<PageHMTInputBloodNew/>}/>
-      <Route path="/input_urine" element={<PageHMTInputUrine/>}/>
-      <Route path="/input_feces" element={<PageHMTInputFeces/>}/>
-      <Route path="/summary" element={<PageHMTSummary/>}/>
     </Routes>
   );
 }
