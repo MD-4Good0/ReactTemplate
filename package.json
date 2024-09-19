@@ -1,6 +1,5 @@
 {
-  "homepage": "https://BohemianRasberry.github.io/medlabview",
-  "name": "lab_slh",
+  "name": "lims",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

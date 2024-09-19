@@ -52,8 +52,8 @@ const Login = () => {
     };
 
     return (
-        <div className='all-container'>
-            <div className='all-left'>
+        <div className='login-all-container'>
+            <div className='login-all-left'>
                 <div className='login-container'>
                     <div className="logo">
                         <img src={logo_icon} alt="Logo" />
@@ -92,17 +92,17 @@ const Login = () => {
                         <button className="login-button-text">Log In</button>
                     </div>
 
-                    <div className="last-row-text">
-                        <button className="text" onClick={handleForgetPassword}>Forget Password?</button>
-                        <button className="text" onClick={handleRegister}>Register</button>
+                    <div className="login-login-last-row-text">
+                        <button className="login-text" onClick={handleForgetPassword}>Forget Password?</button>
+                        <button className="login-text" onClick={handleRegister}>Register</button>
                     </div>
                 </div>
             </div>
-            <div className='all-right'>
-                <p className="first-row">
+            <div className='login-all-right'>
+                <p className="login-first-row">
                     Welcome to the
                 </p>
-                <div className="second-row">
+                <div className="login-second-row">
                     <p className="L">L</p>
                     <p className="ab">ab</p>
                     <p className="I">I</p>
@@ -112,7 +112,7 @@ const Login = () => {
                     <p className="S">S</p>
                     <p className="ystem">ystem</p>
                 </div>
-                <div className="third-row">
+                <div className="login-third-row">
                     <p>
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
                         Vivamus metus arcu, molestie ac tempor at, fringilla eget ligula. 

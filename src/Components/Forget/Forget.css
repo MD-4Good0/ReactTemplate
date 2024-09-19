@@ -2,12 +2,13 @@
     font-family: 'Poppins', cursive;
   }
 
-.all-container {
+.forget-all-container {
     display: flex;
     align-items: center;
     justify-content: center;
     margin-top: 10vh;
     gap: 140px;
+    caret-color: transparent;
 }
 
 .forget-container{
@@ -63,6 +64,7 @@
     
 }
 .input input{
+    caret-color: auto;
     height: 50px;
     width: 500px;
     background: transparent;
@@ -147,11 +149,11 @@
     cursor: pointer;
 }
 
-.last-row-text {
+.forget-last-row-text {
     display: flex;
 }
 
-.text {
+.forget-text {
     border: none;
     background: none;
     cursor: pointer;
@@ -163,20 +165,20 @@
     padding: 5px 10px;
 }
 
-.text:hover {
+.forget-text:hover {
     color:#ffffff;
     border-radius: 12px;
     background: #2B9DC1;
 }
 
-.first-row {
+.forget-first-row {
     font-family: 'Poppins';
     font-weight: 700;
     font-size: 62px;
     color: white;
 }
 
-.second-row {
+.forget-second-row {
     display: flex;
     align-items: end;
     font-family: 'Poppins';
@@ -195,16 +197,15 @@
     padding-right: 5px;
 }
 
-.third-row {
+.forget-third-row {
     margin-top: -40px;
 }
 
-.third-row p{
+.forget-third-row p{
     padding: 20px 30px;
     width: 870px;
     background: #ffffffb5;
     font-family: 'Poppins';
     text-align: justify;
     border-radius: 15px;
-
 }

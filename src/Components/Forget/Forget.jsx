@@ -17,9 +17,33 @@ const Login = () => {
         navigate("/register")
     };
 
+    const sendResetLink = async (email) => {
+        try {
+          const response = await fetch("https://api.userfront.com/v0/auth/reset", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              email,
+            }),
+          });
+      
+          if (response.ok) {
+            console.log("Reset link sent successfully.");
+          } else {
+            console.error("Error sending reset link.");
+          }
+        } catch (error) {
+          console.error("Network error:", error);
+        }
+      };
+      
+      sendResetLink("user@example.com");
+
     return (
-        <div className='all-container'>
-            <div className='all-left'>
+        <div className='forget-all-container'>
+            <div className='forget-all-left'>
                 <div className='forget-container'>
                     <div className='f-c-container'>
                         <p className="f-c-c-forgetyourpassword">
@@ -51,17 +75,17 @@ const Login = () => {
                         <button className="reset-button-text">Reset Your Password</button>
                     </div>
 
-                    <div className="last-row-text">
-                        <button className="text" onClick={handleBackToLogin}>Back To Log In</button>
-                        <button className="text" onClick={handleRegister}>Register</button>
+                    <div className="forget-last-row-text">
+                        <button className="forget-text" onClick={handleBackToLogin}>Back To Log In</button>
+                        <button className="forget-text" onClick={handleRegister}>Register</button>
                     </div>
                 </div>
             </div>
-            <div className='all-right'>
-                <p className="first-row">
+            <div className='forget-all-right'>
+                <p className="forget-first-row">
                     Welcome to the
                 </p>
-                <div className="second-row">
+                <div className="forget-second-row">
                     <p className="L">L</p>
                     <p className="ab">ab</p>
                     <p className="I">I</p>
@@ -71,7 +95,7 @@ const Login = () => {
                     <p className="S">S</p>
                     <p className="ystem">ystem</p>
                 </div>
-                <div className="third-row">
+                <div className="forget-third-row">
                     <p>
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
                         Vivamus metus arcu, molestie ac tempor at, fringilla eget ligula. 
