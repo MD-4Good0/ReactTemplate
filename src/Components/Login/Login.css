@@ -157,7 +157,7 @@
 
 .login-second-row {
     display: flex;
-    align-items: end;
+    align-items: flex-end;
     font-family: 'Poppins';
     font-weight: 700;
     color: white;
