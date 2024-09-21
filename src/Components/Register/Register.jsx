@@ -9,7 +9,7 @@ import eyeClose from '../Assets/EyeClose.png';
 
 Userfront.init("jb7ywq8b");
 
-const Login = () => {
+const Register = () => {
     const [formData, setFormData] = useState({
         firstName: "",
         mi: "",
@@ -95,9 +95,6 @@ const Login = () => {
         <div className='register-all-container'>
             <div className='register-all-left'>
                 <div className='register-container'>
-                    <div className="logo">
-                        <img src={logo_icon} alt="Logo" />
-                    </div>
                     <div className="register-form">
                         <input
                             className="font-link"
