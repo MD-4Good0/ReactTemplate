@@ -10,6 +10,7 @@ Userfront.init("jb7ywq8b");
 const Register = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [repeatPassword, setRepeatPassword] = useState("");
     const [visible, setVisible] = useState(false);
     const navigate = useNavigate();
     const [firstName, setFirstName] = useState("");
@@ -158,7 +159,7 @@ const Register = () => {
                                     />
                                 </div>
                             </div>
-
+                            
                             <div className='label-container'>
                                 <div className='l-c-label'>Password</div>
                                 <div className="password">
@@ -185,9 +186,9 @@ const Register = () => {
                                     <input 
                                         className="font-link"
                                         type={visible ? "text" : "password"}
-                                        value={password} 
-                                        id="password"
-                                        onChange={(e) => setPassword(e.target.value)}
+                                        value={repeatPassword} 
+                                        id="repeat-password"
+                                        onChange={(e) => setRepeatPassword(e.target.value)}
                                     />
 
                                     <div className="eyecon" onClick={() => setVisible(!visible)}>
