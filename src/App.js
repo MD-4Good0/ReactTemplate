@@ -6,6 +6,7 @@ import { Routes, Route, Navigate} from "react-router-dom";
 import PageLogin from './PageLogin';
 import PageForget from './PageForget';
 import PageRegister from './PageRegister';
+import PageTFA from './PageTFA';
 
 Userfront.init("jb7ywq8b");
 
@@ -30,6 +31,7 @@ function App() {
       <Route path="/register" element={<PageRegister/>}/>
       <Route path="/forget" element={<PageForget/>}/>
       <Route path="/register" element={<PageRegister/>}/>
+      <Route path="/tfa" element={<PageTFA/>}/>
       <Route
         path="*"
         element={
