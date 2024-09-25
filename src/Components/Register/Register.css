@@ -1,0 +1,361 @@
+.font-link {
+    font-family: 'Poppins', cursive;
+  }
+
+.register-all-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10vh;
+    gap: 140px;
+}
+
+.registration {
+    font-family: 'Poppins';
+    font-weight: 700;
+    font-size: 48px;
+    color: #2B9DC1;
+    padding-top: 29px;
+}
+
+.register-form {
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+}
+
+.register-container{
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    margin-top: 3%;
+    justify-content: center;
+    align-items: center;   
+    width: 1257px;
+    height: 710px;
+    background: #ffffffb5;
+    padding-bottom: 30px;
+    border-radius: 35px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.inputs{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    
+}
+
+.label-container {
+    font-family: 'Poppins';
+    font-weight: 700;
+    color: #2B9DC1;
+    font-size: 16px;
+}
+
+.l-c-label {
+    padding-left: 12px;
+}
+
+.email input, .password input, .retype-password input, .company-name input{
+    height: 50px;
+    width: 500px;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #2B9DC1;
+    font-size: 20px;
+    font-weight: 700;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.first-name input{
+    height: 50px;
+    width: 190px;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #2B9DC1;
+    font-size: 20px;
+    font-weight: 700;
+    padding-left: 15px;
+}
+
+.mi input{
+    height: 50px;
+    width: 14px;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #2B9DC1;
+    font-size: 20px;
+    font-weight: 700;
+    padding-left: 15px;
+}
+
+.last-name input{
+    height: 50px;
+    width: 120px;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #2B9DC1;
+    font-size: 20px;
+    font-weight: 700;
+    padding-left: 15px;
+}
+
+.lto-number input{
+    height: 50px;
+    width: 160px;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #2B9DC1;
+    font-size: 20px;
+    font-weight: 700;
+    padding-left: 15px;
+}
+
+.contact-number input, .cli-class-container input[type="cli-class-others-input"]{
+    height: 50px;
+    width: 220px;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #2B9DC1;
+    font-size: 20px;
+    font-weight: 700;
+    padding-left: 15px;
+}
+
+.email, .password, .retype-password, .company-name{
+    display: flex;
+    align-items: center;
+    margin: auto;
+    width: 459px;
+    height: 51px;
+    background: #ffffff;
+    border-radius: 12px;
+    border: 4px solid #95CFE1;
+}
+
+.register-input-first-row, .register-input-third-row {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.register-input-third-row {
+    gap: 13px;
+}
+
+.first-name {
+    width: 221px;
+    height: 51px;
+    background: #ffffff;
+    border-radius: 12px;
+    border: 4px solid #95CFE1;
+}
+
+.mi {
+    width: 44px;
+    height: 51px;
+    background: #ffffff;
+    border-radius: 12px;
+    border: 4px solid #95CFE1;
+}
+
+.last-name {
+    width: 156px;
+    height: 51px;
+    background: #ffffff;
+    border-radius: 12px;
+    border: 4px solid #95CFE1;
+}
+
+.lto-number{
+    width: 188px;
+    height: 51px;
+    background: #ffffff;
+    border-radius: 12px;
+    border: 4px solid #95CFE1;
+}
+
+.contact-number{
+    width: 249px;
+    height: 51px;
+    background: #ffffff;
+    border-radius: 12px;
+    border: 4px solid #95CFE1;
+}
+
+.password input::-ms-reveal {
+    display: none;
+}
+
+.password input::placeholder {
+    color:#2B9DC1;
+}
+
+.eyecon {
+    margin-left: -30px;
+    margin-right: -20px;
+    padding-top: 1px;
+    padding-left: 20px;
+    padding-right: 40px;
+    width: 45px;
+}
+
+#password {
+    width: 100%;
+}
+
+.eyecon button{
+    cursor: pointer;
+    border: none;
+    background: none;
+}
+
+.eyecon img{
+    margin-top: 5px;
+    width: 45px;
+}
+
+.register-button{
+    padding-top: 10px;
+    margin: 20px;
+}
+
+.register-button button{
+    border: none;
+}
+
+.register-button button:hover{
+    color: #2B9DC1;
+    background-color: #fff;
+    border: 4px solid #2B9DC1
+}
+
+.register-button-text{
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    width: 412px;
+    height: 70px;
+    color: #fff;
+    background: #2B9DC1;
+    border-radius: 12px;
+    font-size: 24px;
+    font-weight: 700;
+    font-family:'Poppins';
+    cursor: pointer;
+}
+
+.register-last-row-text {
+    display: flex;
+}
+
+.register-text {
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-family: 'Poppins';
+    font-size: 18px;
+    font-weight: 700;
+    color: #2B9DC1;
+    margin-bottom: 18px;
+    padding: 5px 10px;
+}
+
+.register-text:hover {
+    color:#ffffff;
+    border-radius: 12px;
+    background: #2B9DC1;
+}
+
+.register-first-row {
+    font-family: 'Poppins';
+    font-weight: 700;
+    font-size: 62px;
+    color: white;
+}
+
+.register-second-row {
+    display: flex;
+    align-items: end;
+    font-family: 'Poppins';
+    font-weight: 700;
+    color: white;
+    margin-top: -70px;
+}
+
+.register-last-row-text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.register-all-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.cli-class {
+    display: flex;
+    flex-direction: column;
+    width: 660px;
+    height: 370px;
+    border: 4px solid #95CFE1;
+    border-radius: 12px;
+    background-color: #ffffff;
+    font-size: 20px;
+}
+
+.cli-class-both {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    margin-top: 35px;
+}
+
+.cli-class-left {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.cli-class-right {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.cli-class-others {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.cli-class-container {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+
+.cli-class-container input[type="cli-class-others-input"] {
+    margin-left: 10px;
+    width: 249px;
+    height: 35px;
+    background: #ffffff;
+    border-radius: 12px;
+    border: 4px solid #95CFE1;
+} 

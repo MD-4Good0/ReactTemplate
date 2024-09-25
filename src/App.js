@@ -5,6 +5,7 @@ import './App.css';
 import { Routes, Route, Navigate} from "react-router-dom";
 import PageLogin from './PageLogin';
 import PageForget from './PageForget';
+import PageRegister from './PageRegister';
 
 Userfront.init("jb7ywq8b");
 
@@ -27,6 +28,7 @@ function App() {
   return (
     <Routes>
       <Route path="/forget" element={<PageForget/>}/>
+      <Route path="/register" element={<PageRegister/>}/>
       <Route
         path="*"
         element={

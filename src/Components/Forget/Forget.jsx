@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom'; // Import useNavigate
 
 Userfront.init("jb7ywq8b");
 
-const Login = () => {
+const Forget = () => {
     const [email, setEmail] = useState("");
     const navigate = useNavigate();
 
@@ -114,4 +114,4 @@ const Login = () => {
     );
 }
 
-export default Login;
+export default Forget;
