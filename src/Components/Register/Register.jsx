@@ -2,8 +2,6 @@ import React, { useState } from 'react';
 import './Register.css';
 import Userfront from "@userfront/core";
 import { useNavigate } from 'react-router-dom'; // Import useNavigate
-
-import logo_icon from '../Assets/BlueLogo.png';
 import eyeOpen from '../Assets/EyeOpen.png';
 import eyeClose from '../Assets/EyeClose.png';
 
@@ -14,23 +12,38 @@ const Register = () => {
     const [password, setPassword] = useState("");
     const [visible, setVisible] = useState(false);
     const navigate = useNavigate();
+    const [firstName, setFirstName] = useState("");
+
+    const [middleInitial, setMiddleInitial] = useState("");
+    const [lastName, setLastName] = useState("");
+    const [companyName, setCompanyName] = useState("");
+    const [ltoNumber, setLtoNumber] = useState("");
+    const [contactNumber, setContactNumber] = useState("");
+    const [clientClassification, setClientClassification] = useState("");
+    const [otherClientClassification, setOtherClientClassification] = useState("");
 
     const navigateAfterLogin = () => {
         navigate("/");
     }
 
-    const handleLogin = async () => {
-        if (!email.trim() || !password.trim()) {
-            alert("Email and password cannot be blank.");
+    const handleRegister = async () => {
+        if (!email.trim() || !password.trim() || !firstName.trim() || !lastName.trim() || !companyName.trim() || !ltoNumber.trim() || !contactNumber.trim() || !clientClassification.trim()) {
+            alert("Please fill in all required fields.");
             return;
         }
     
         try {
-    
             const response = await Userfront.login({
                 method: "password",
                 email: email,
                 password: password,
+                firstName: firstName,
+                lastName: lastName,
+                companyName: companyName,
+                ltoNumber: ltoNumber,
+                contactNumber: contactNumber,
+                clientClassification: clientClassification,
+                otherClientClassification: otherClientClassification
             });
     
             console.log("Login Response:", response);
@@ -64,7 +77,9 @@ const Register = () => {
                                     <div className='first-name'>
                                         <input 
                                             className="font-link"
-                                            type="first-name"
+                                            type="text"
+                                            value={firstName}
+                                            onChange={(e) => setFirstName(e.target.value)}
                                         />
                                     </div>
                                 </div>
@@ -74,7 +89,9 @@ const Register = () => {
                                     <div className='mi'>
                                         <input 
                                             className="font-link"
-                                            type="mi"
+                                            type="text"
+                                            value={middleInitial}
+                                            onChange={(e) => setMiddleInitial(e.target.value)}
                                         />
                                     </div>
                                 </div>
@@ -84,7 +101,9 @@ const Register = () => {
                                     <div className='last-name'>
                                         <input 
                                             className="font-link"
-                                            type="last-name"
+                                            type="text"
+                                            value={lastName}
+                                            onChange={(e) => setLastName(e.target.value)}
                                         />
                                     </div>
                                 </div>     
@@ -95,7 +114,9 @@ const Register = () => {
                                 <div className="company-name">
                                     <input 
                                         className="font-link"
-                                        type="company-name"
+                                        type="text"
+                                        value={companyName}
+                                        onChange={(e) => setCompanyName(e.target.value)}
                                     />
                                 </div>
                             </div>
@@ -106,7 +127,9 @@ const Register = () => {
                                     <div className='lto-number'>
                                         <input 
                                             className="font-link"
-                                            type="lto-number"
+                                            type="text"
+                                            value={ltoNumber}
+                                            onChange={(e) => setLtoNumber(e.target.value)}
                                         />
                                     </div>
                                 </div>
@@ -116,7 +139,9 @@ const Register = () => {
                                     <div className='contact-number'>
                                         <input 
                                             className="font-link"
-                                            type="contact-number"
+                                            type="text"
+                                            value={contactNumber}
+                                            onChange={(e) => setContactNumber(e.target.value)}
                                         />
                                     </div>
                                 </div>
@@ -127,7 +152,7 @@ const Register = () => {
                                 <div className="email">
                                     <input 
                                         className="font-link"
-                                        type="email" 
+                                        type="text" 
                                         value={email}
                                         onChange={(e) => setEmail(e.target.value)}
                                     />
@@ -184,27 +209,27 @@ const Register = () => {
                                     <div className="cli-class-both">
                                         <div className="cli-class-left">
                                             <label class="cli-class-container">
-                                                <input type="radio" name="cli-class"/>
+                                                <input type="radio" name="cli-class" value={clientClassification} onChange={(e) => setClientClassification(e.target.value)}/>
                                                 <span class="checkmark"></span>
                                                 Importer
                                             </label>
                                             <label class="cli-class-container">
-                                                <input type="radio" name="cli-class"/>
+                                                <input type="radio" name="cli-class" value={clientClassification} onChange={(e) => setClientClassification(e.target.value)}/>
                                                 <span class="checkmark"></span>
                                                 Exporter
                                             </label>
                                             <label class="cli-class-container">
-                                                <input type="radio" name="cli-class"/>
+                                                <input type="radio" name="cli-class" value={clientClassification} onChange={(e) => setClientClassification(e.target.value)}/>
                                                 <span class="checkmark"></span>
                                                 Slaughterhouse
                                             </label>
                                             <label class="cli-class-container">
-                                                <input type="radio" name="cli-class"/>
+                                                <input type="radio" name="cli-class" value={clientClassification} onChange={(e) => setClientClassification(e.target.value)}/>
                                                 <span class="checkmark"></span>
                                                 Poultry Dressing Plant
                                             </label>
                                             <label class="cli-class-container">
-                                                <input type="radio" name="cli-class"/>
+                                                <input type="radio" name="cli-class" value={clientClassification} onChange={(e) => setClientClassification(e.target.value)}/>
                                                 <span class="checkmark"></span>
                                                 Meat Dealer
                                             </label>
@@ -212,27 +237,27 @@ const Register = () => {
 
                                         <div className="cli-class-right">
                                             <label class="cli-class-container">
-                                                <input type="radio" name="cli-class"/>
+                                                <input type="radio" name="cli-class" value={clientClassification} onChange={(e) => setClientClassification(e.target.value)}/>
                                                 <span class="checkmark"></span>
                                                 Meat Processing Plant
                                             </label>
                                             <label class="cli-class-container">
-                                                <input type="radio" name="cli-class"/>
+                                                <input type="radio" name="cli-class" value={clientClassification} onChange={(e) => setClientClassification(e.target.value)}/>
                                                 <span class="checkmark"></span>
                                                 Meat Cutting Plant
                                             </label>
                                             <label class="cli-class-container">
-                                                <input type="radio" name="cli-class"/>
+                                                <input type="radio" name="cli-class" value={clientClassification} onChange={(e) => setClientClassification(e.target.value)}/>
                                                 <span class="checkmark"></span>
                                                 Consumer
                                             </label>
                                             <label class="cli-class-container">
-                                                <input type="radio" name="cli-class"/>
+                                                <input type="radio" name="cli-class" value={clientClassification} onChange={(e) => setClientClassification(e.target.value)}/>
                                                 <span class="checkmark"></span>
                                                 Plant Officer
                                             </label>
                                             <label class="cli-class-container">
-                                                <input type="radio" name="cli-class"/>
+                                                <input type="radio" name="cli-class" value={clientClassification} onChange={(e) => setClientClassification(e.target.value)}/>
                                                 <span class="checkmark"></span>
                                                 Cold Storage Warehouse
                                             </label>
@@ -245,14 +270,15 @@ const Register = () => {
                                             <span class="checkmark"></span>
                                             Others:
                                             <input 
-                                                className="font-link"
-                                                type="cli-class-others-input"
+                                                type="text"
+                                                value={otherClientClassification}
+                                                onChange={(e) => setOtherClientClassification(e.target.value)}
                                             />
                                         </label>
                                     </div>
                                 </div>
                         </div>
-                        <div className="register-button" onClick={handleLogin}>
+                        <div className="register-button" onClick={handleRegister}>
                             <button className="register-button-text">Register</button>
                         </div>
 
