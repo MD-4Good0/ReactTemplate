@@ -10,8 +10,9 @@ Userfront.init("jb7ywq8b");
 const Register = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const [repeatPassword, setRepeatPassword] = useState("");
     const [visible, setVisible] = useState(false);
+    const [repeatPassword, setRepeatPassword] = useState("");
+    const [repeatPasswordVisible, setRepeatPasswordVisible] = useState(false);
     const navigate = useNavigate();
     const [firstName, setFirstName] = useState("");
 
@@ -159,7 +160,7 @@ const Register = () => {
                                     />
                                 </div>
                             </div>
-                            
+
                             <div className='label-container'>
                                 <div className='l-c-label'>Password</div>
                                 <div className="password">
@@ -183,20 +184,19 @@ const Register = () => {
                             <div className='label-container'>
                                 <div className='l-c-label'>Repeat Password</div>
                                 <div className="retype-password">
-                                    <input 
+                                    <input
                                         className="font-link"
-                                        type={visible ? "text" : "password"}
-                                        value={repeatPassword} 
+                                        type={repeatPasswordVisible ? "text" : "password"}
+                                        value={repeatPassword}
                                         id="repeat-password"
                                         onChange={(e) => setRepeatPassword(e.target.value)}
                                     />
 
-                                    <div className="eyecon" onClick={() => setVisible(!visible)}>
-                                        <button>
-                                            {visible ? <img src={eyeOpen} alt="Show Password" /> 
-                                                    : <img src={eyeClose} alt="Hide Password" />}
-                                        </button>
-                                    </div>
+                                <div className="eyecon" onClick={() => setRepeatPasswordVisible(!repeatPasswordVisible)}>
+                                    <button>
+                                        {repeatPasswordVisible ? <img src={eyeOpen} alt="Show Password" /> : <img src={eyeClose} alt="Hide Password" />}
+                                    </button>
+                                </div>
                                 </div>
                             </div>
 
