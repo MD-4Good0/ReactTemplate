@@ -27,6 +27,7 @@ function Home() {
 function App() {
   return (
     <Routes>
+      <Route path="/register" element={<PageRegister/>}/>
       <Route path="/forget" element={<PageForget/>}/>
       <Route path="/register" element={<PageRegister/>}/>
       <Route
