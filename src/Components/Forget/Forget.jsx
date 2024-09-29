@@ -59,8 +59,8 @@ const Forget = () => {
                             Enter your email to reset your account's password.
                         </p>
                     </div>
-                    <div className="em-pass">               
-                        <div className="input">
+                    <div className="email-forget">               
+                        <div className="forget-input">
                             <input 
                                 className="font-link"
                                 type="email" 

@@ -7,6 +7,9 @@ import PageLogin from './PageLogin';
 import PageForget from './PageForget';
 import PageRegister from './PageRegister';
 import PageTFA from './PageTFA';
+import PageForgotES from './PageEmailSent';
+import PageForgotNIS from './PageNotInSystem';
+import PageRegisterTY from './PageThankYou';
 
 Userfront.init("jb7ywq8b");
 
@@ -32,6 +35,9 @@ function App() {
       <Route path="/forget" element={<PageForget/>}/>
       <Route path="/register" element={<PageRegister/>}/>
       <Route path="/tfa" element={<PageTFA/>}/>
+      <Route path="/email-sent" element={<PageForgotES/>}/>
+      <Route path="/not-in-system" element={<PageForgotNIS/>}/>
+      <Route path="/registered" element={<PageRegisterTY/>}/>
       <Route
         path="*"
         element={

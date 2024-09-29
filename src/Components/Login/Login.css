@@ -35,26 +35,26 @@
 .logo img{
     width: 382px;
 }
-.em-pass{
+.login-em-pass{
     display: flex;
     flex-direction: column;
     gap: 20px;
     
 }
-.input input{
+.login-input input{
     height: 50px;
     width: 500px;
     background: transparent;
     border: none;
     outline: none;
-    color: #2B9DC1;
+    color: #4a4a4a;
     font-size: 24px;
     font-weight: 700;
     padding-left: 20px;
     padding-right: 15px;
 }
 
-.input{
+.login-input{
     display: flex;
     align-items: center;
     margin: auto;
@@ -65,12 +65,12 @@
     border: 4px solid #95CFE1;
 }
 
-.input input[type="password"]::-ms-reveal {
+.login-input input[type="password"]::-ms-reveal {
     display: none;
 }
 
-.input input::placeholder {
-    color:#2B9DC1;
+.login-input input::placeholder {
+    color:#4a4a4a;
 }
 
 .eyecon {

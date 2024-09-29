@@ -42,26 +42,26 @@ const Forget = () => {
       sendResetLink("user@example.com");
 
     return (
-        <div className='forget-all-container'>
-            <div className='forget-all-left'>
-                <div className='forget-container'>
-                    <div className='f-c-container'>
-                        <p className="f-c-c-forgetyourpassword">
+        <div className='tfa-all-container'>
+            <div className='tfa-all-left'>
+                <div className='tfa-container'>
+                    <div className='t-c-container'>
+                        <p className="t-c-c-title">
                             Two-
                         </p>
-                        <p className="f-c-c-forgetyourpassword">
+                        <p className="t-c-c-title">
                             Factor
                         </p>
-                        <p className="f-c-c-forgetyourpassword">
+                        <p className="t-c-c-title">
                             Authentication
                         </p>
-                        <p className="f-c-c-text">
+                        <p className="t-c-c-text">
                         Enter the code from your provided email below.
                         </p>
                         
                     </div>
-                    <div className="em-pass">               
-                        <div className="input">
+                    <div className="tfa-email">               
+                        <div className="tfa-input">
                             <input 
                                 className="font-link"
                                 type="text" 
@@ -72,16 +72,16 @@ const Forget = () => {
                         </div>
                     </div>
 
-                    <div className="reset-button">
-                        <button className="reset-button-text">Log In</button>
+                    <div className="login-button">
+                        <button className="login-button-text">Log In</button>
                     </div>
                 </div>
             </div>
-            <div className='forget-all-right'>
-                <p className="forget-first-row">
+            <div className='tfa-all-right'>
+                <p className="tfa-first-row">
                     Welcome to the
                 </p>
-                <div className="forget-second-row">
+                <div className="tfa-second-row">
                     <p className="L">L</p>
                     <p className="ab">ab</p>
                     <p className="I">I</p>
@@ -91,7 +91,7 @@ const Forget = () => {
                     <p className="S">S</p>
                     <p className="ystem">ystem</p>
                 </div>
-                <div className="forget-third-row">
+                <div className="tfa-third-row">
                     <p>
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
                         Vivamus metus arcu, molestie ac tempor at, fringilla eget ligula. 

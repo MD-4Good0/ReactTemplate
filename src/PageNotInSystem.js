@@ -1,16 +1,16 @@
 import React from "react";
-import TFA from './Components/TFA/TFA';
+import ForgotNIS from './Components/Messages/ForgotNIS';
 import BG from './Components/Background/BG';
 import Footer from './Components/Footer/Footer';
 
-function PageTFA() {
+function PageNotInSystem() {
     return(
         <div>
-            <TFA/>
+            <ForgotNIS/>
             <BG/>
             <Footer />
         </div>
     )
 }
 
-export default PageTFA
+export default PageNotInSystem

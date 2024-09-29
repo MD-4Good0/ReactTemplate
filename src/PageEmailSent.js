@@ -1,16 +1,16 @@
 import React from "react";
-import TFA from './Components/TFA/TFA';
+import ForgotES from './Components/Messages/ForgotES';
 import BG from './Components/Background/BG';
 import Footer from './Components/Footer/Footer';
 
-function PageTFA() {
+function PageEmailSent() {
     return(
         <div>
-            <TFA/>
+            <ForgotES/>
             <BG/>
             <Footer />
         </div>
     )
 }
 
-export default PageTFA
+export default PageEmailSent

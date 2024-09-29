@@ -3,7 +3,7 @@ import Forget from './Components/Forget/Forget';
 import BG from './Components/Background/BG';
 import Footer from './Components/Footer/Footer';
 
-function PageLogin() {
+function PageForget() {
     return(
         <div>
             <Forget/>
@@ -13,4 +13,4 @@ function PageLogin() {
     )
 }
 
-export default PageLogin
+export default PageForget

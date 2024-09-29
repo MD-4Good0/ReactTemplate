@@ -172,7 +172,7 @@ const Register = () => {
                                         onChange={(e) => setPassword(e.target.value)}
                                     />
 
-                                    <div className="eyecon" onClick={() => setVisible(!visible)}>
+                                    <div className="eyecon-register" onClick={() => setVisible(!visible)}>
                                         <button>
                                             {visible ? <img src={eyeOpen} alt="Show Password" /> 
                                                     : <img src={eyeClose} alt="Hide Password" />}
@@ -192,7 +192,7 @@ const Register = () => {
                                         onChange={(e) => setRepeatPassword(e.target.value)}
                                     />
 
-                                <div className="eyecon" onClick={() => setRepeatPasswordVisible(!repeatPasswordVisible)}>
+                                <div className="eyecon-register" onClick={() => setRepeatPasswordVisible(!repeatPasswordVisible)}>
                                     <button>
                                         {repeatPasswordVisible ? <img src={eyeOpen} alt="Show Password" /> : <img src={eyeClose} alt="Hide Password" />}
                                     </button>

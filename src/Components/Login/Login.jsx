@@ -58,8 +58,8 @@ const Login = () => {
                     <div className="logo">
                         <img src={logo_icon} alt="Logo" />
                     </div>
-                    <div className="em-pass">               
-                        <div className="input">
+                    <div className="login-em-pass">               
+                        <div className="login-input">
                             <input 
                                 className="font-link"
                                 type="email" 
@@ -69,7 +69,7 @@ const Login = () => {
                             />
                         </div>
 
-                        <div className="input">
+                        <div className="login-input">
                             <input 
                                 className="font-link"
                                 type={visible ? "text" : "password"}
