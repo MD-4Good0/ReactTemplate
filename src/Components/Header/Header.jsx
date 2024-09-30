@@ -26,8 +26,8 @@ const Header = () => {
         <div className='header'>
             <div className="left-stuff">
 
-                <div className="title-short">MLV DTP</div>
-                <div className="title">MLV Diagnostic Test Portal</div>
+                <div className="title-short">LIMS</div>
+                <div className="title">LIMS</div>
 
             </div>
 
