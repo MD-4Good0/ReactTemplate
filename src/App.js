@@ -10,6 +10,7 @@ import PageTFA from './PageTFA';
 import PageForgotES from './PageEmailSent';
 import PageForgotNIS from './PageNotInSystem';
 import PageRegisterTY from './PageThankYou';
+import PageHomeClient from './PageHomeClient';
 
 Userfront.init("jb7ywq8b");
 
@@ -50,6 +51,7 @@ function App() {
       />
 
       <Route path="/login" element={<PageLogin/>}/>
+      <Route path="/homeclient" element={<PageHomeClient/>}/>
     </Routes>
   );
 }
