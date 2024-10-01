@@ -70,7 +70,7 @@ const Forget = () => {
                     </div>
 
                     <div className="login-button">
-                        <button className="login-button-text">Log In</button>
+                        <button className="text-button">Log In</button>
                     </div>
                 </div>
             </div>

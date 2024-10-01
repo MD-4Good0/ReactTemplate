@@ -280,12 +280,12 @@ const Register = () => {
                                 </div>
                         </div>
                         <div className="login-button" onClick={handleRegister}>
-                            <button className="login-button-text">Register</button>
+                            <button className="text-button">Register</button>
                         </div>
 
                         <div className="register-last-row-text">
-                            <button className="center login-text" onClick={handleBackToLogin}>Back To Log In</button>
-                            <button className="center login-text" onClick={handleForgetPassword}>Forget Password?</button>
+                            <button className="center button-text" onClick={handleBackToLogin}>Back To Log In</button>
+                            <button className="center button-text" onClick={handleForgetPassword}>Forget Password?</button>
                         </div>
                     </div>
                 </div>

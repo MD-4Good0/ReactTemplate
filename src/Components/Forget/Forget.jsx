@@ -72,12 +72,12 @@ const Forget = () => {
                     </div>
 
                     <div className="login-button">
-                        <button className="login-button-text">Reset Your Password</button>
+                        <button className="text-button">Reset Your Password</button>
                     </div>
 
                     <div className="forget-last-row-text">
-                        <button className="center login-text" onClick={handleBackToLogin}>Back To Log In</button>
-                        <button className="center login-text" onClick={handleRegister}>Register</button>
+                        <button className="center button-text" onClick={handleBackToLogin}>Back To Log In</button>
+                        <button className="center button-text" onClick={handleRegister}>Register</button>
                     </div>
                 </div>
             </div>
