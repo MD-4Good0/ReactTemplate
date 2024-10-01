@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './Register.css';
+import './Submit.css';
 import Userfront from "@userfront/core";
 import { useNavigate } from 'react-router-dom'; // Import useNavigate
 import eyeOpen from '../Assets/EyeOpen.png';

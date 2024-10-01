@@ -49,7 +49,7 @@
     font-family: 'Poppins';
     font-size: 48px;
     font-weight: 700;
-    color: #2B9DC1;
+    color: #004e65;
     margin-top: -10px;
 }
 
@@ -58,7 +58,7 @@
     font-family: 'Poppins';
     font-size: 36px;
     font-weight: 700;
-    color: #2B9DC1;
+    color: #004e65;
     margin-top: -10px;
 }
 
@@ -67,7 +67,7 @@
     font-family: 'Poppins';
     font-size: 36px;
     font-weight: 700;
-    color: #2B9DC1;
+    color: #004e65;
     margin-top: -20px;
 }
 
@@ -82,6 +82,8 @@
 
 .messages-button button{
     border: none;
+    transition: color 0.3s ease,
+        background-color 0.3s ease;
 }
 
 .messages-button button:hover{

@@ -3,6 +3,10 @@ import Userfront from "@userfront/core";
 import { useNavigate } from 'react-router-dom';
 import white_logo_icon from '../Assets/WhiteLogo.png';
 
+import submit_icon from '../Assets/Submit.png';
+import track_icon from '../Assets/Track.png';
+import guide_icon from '../Assets/Guide.png';
+
 Userfront.init("jb7ywq8b");
 
 const HomeClient = () => {
@@ -44,15 +48,15 @@ const HomeClient = () => {
 
         <div className="options-container" >
           <div className="option-card" onClick={handleSubmit}>
-            <img src="/path-to-icon/submit-request.png" alt="Submit Request" />
+            <img src={submit_icon} alt="Submit Request" />
             <h2>Submit a Request</h2>
           </div>
           <div className="option-card" onClick={handleTrack}>
-            <img src="/path-to-icon/track-request.png" alt="Track Request" />
+            <img src={track_icon} alt="Track Request" />
             <h2>Track My Request</h2>
           </div>
           <div className="option-card" onClick={handleGuide}>
-            <img src="/path-to-icon/guide.png" alt="Guide" />
+            <img src={guide_icon} alt="Guide" />
             <h2>Guide</h2>
           </div>
         </div>

@@ -20,6 +20,12 @@
     gap: 20px;
     display: flex;
     align-items: center;
+    opacity: 50%;
+    transition: opacity 0.3s ease;
+}
+
+.left-stuff:hover {
+    opacity: 100%;
 }
 
 .left-stuff img {
@@ -79,7 +85,7 @@
 }
 
 .logout-button-text{
-    font-size: 32px;
+    font-size: 26px;
     font-weight: 200;
     font-family:'Poppins';
     color: #ffffffa7;

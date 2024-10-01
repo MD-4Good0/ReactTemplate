@@ -6,7 +6,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 10vh;
+    margin-top: 13vh;
     gap: 140px;
     caret-color: transparent;
 }
@@ -30,7 +30,7 @@
     color:#2B9DC1;
     font-weight: 700;
     margin-top: 40px;
-    margin-bottom: 185px;
+    margin-bottom: 290px;
     margin-left: 30px;
 }
 
@@ -45,6 +45,7 @@
     font-size: 24px;
     padding-top: 30px;
     margin-bottom: -20px;
+    margin-right: 100px;
 }
 
 .logo{
@@ -126,27 +127,6 @@
 
 .reset-button button{
     border: none;
-}
-
-.login-button button:hover{
-    color: #2B9DC1;
-    background-color: #fff;
-    border: 4px solid #2B9DC1
-}
-
-.login-button-text{
-    display: flex;
-    justify-content: center; 
-    align-items: center;
-    width: 412px;
-    height: 70px;
-    color: #fff;
-    background: #2B9DC1;
-    border-radius: 12px;
-    font-size: 24px;
-    font-weight: 700;
-    font-family:'Poppins';
-    cursor: pointer;
 }
 
 .tfa-last-row-text {

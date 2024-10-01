@@ -71,8 +71,8 @@ const Forget = () => {
                         </div>
                     </div>
 
-                    <div className="reset-button">
-                        <button className="reset-button-text">Reset Your Password</button>
+                    <div className="login-button">
+                        <button className="login-button-text">Reset Your Password</button>
                     </div>
 
                     <div className="forget-last-row-text">

@@ -47,10 +47,7 @@ const Forget = () => {
                 <div className='tfa-container'>
                     <div className='t-c-container'>
                         <p className="t-c-c-title">
-                            Two-
-                        </p>
-                        <p className="t-c-c-title">
-                            Factor
+                            Two-Factor
                         </p>
                         <p className="t-c-c-title">
                             Authentication
