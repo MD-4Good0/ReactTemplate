@@ -6,7 +6,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 10vh;
+    margin-top: 13vh;
     gap: 140px;
 }
 
@@ -47,7 +47,7 @@
     background: transparent;
     border: none;
     outline: none;
-    color: #4a4a4a;
+    color: #004e65;
     font-size: 24px;
     font-weight: 700;
     padding-left: 20px;
@@ -70,7 +70,7 @@
 }
 
 .login-input input::placeholder {
-    color:#4a4a4a;
+    color:#004e65;
 }
 
 .eyecon {
@@ -128,6 +128,7 @@
 
 .login-last-row-text {
     display: flex;
+    margin-bottom: 5px;
 }
 
 .login-text {
@@ -140,22 +141,48 @@
     color: #2B9DC1;
     margin-bottom: 18px;
     padding: 5px 10px;
+    position: relative;
+    overflow: hidden;
+    transition: color 0.3s ease;
+}
+
+.login-text::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: #2B9DC1; /* Color of underline */
+    left: 0;
+    bottom: 0;
+    transition: color 0.3s ease, width 0.3s ease;
 }
 
 .login-text:hover {
-    color:#ffffff;
-    border-radius: 12px;
-    background: #2B9DC1;
+    color: #004e65;
 }
 
-.login-first-row {
+.login-text:hover::after {
+    background-color: #004e65;
+    width: 100%; /* Expand underline width on hover */
+}
+
+
+.all-right-first-row {
     font-family: 'Poppins';
     font-weight: 700;
     font-size: 62px;
     color: white;
 }
 
-.login-second-row {
+.all-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+
+.all-right-second-row {
     display: flex;
     align-items: flex-end;
     font-family: 'Poppins';
@@ -174,11 +201,11 @@
     padding-right: 5px;
 }
 
-.login-third-row {
+.all-right-third-row {
     margin-top: -40px;
 }
 
-.login-third-row p{
+.all-right-third-row p{
     padding: 20px 30px;
     width: 870px;
     background: #ffffffb5;

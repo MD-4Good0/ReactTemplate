@@ -7,7 +7,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-top: 10vh;
+    margin-top: 10.2vh;
     gap: 140px;
 }
 
@@ -67,7 +67,7 @@
     background: transparent;
     border: none;
     outline: none;
-    color: #4a4a4a;
+    color: #004e65;
     font-size: 20px;
     font-weight: 700;
     padding-left: 15px;
@@ -80,7 +80,7 @@
     background: transparent;
     border: none;
     outline: none;
-    color: #4a4a4a;
+    color: #004e65;
     font-size: 20px;
     font-weight: 700;
     padding-left: 15px;
@@ -92,7 +92,7 @@
     background: transparent;
     border: none;
     outline: none;
-    color: #4a4a4a;
+    color: #004e65;
     font-size: 20px;
     font-weight: 700;
     padding-left: 15px;
@@ -104,7 +104,7 @@
     background: transparent;
     border: none;
     outline: none;
-    color: #4a4a4a;
+    color: #004e65;
     font-size: 20px;
     font-weight: 700;
     padding-left: 15px;
@@ -116,7 +116,7 @@
     background: transparent;
     border: none;
     outline: none;
-    color: #4a4a4a;
+    color: #004e65;
     font-size: 20px;
     font-weight: 700;
     padding-left: 15px;
@@ -128,7 +128,7 @@
     background: transparent;
     border: none;
     outline: none;
-    color: #4a4a4a;
+    color: #004e65;
     font-size: 20px;
     font-weight: 700;
     padding-left: 15px;
@@ -342,7 +342,7 @@
 .cli-class-others {
     display: flex;
     justify-content: center;
-    margin-top: 15px;
+    margin-top: 20px;
 }
 
 .cli-class-container {
@@ -355,7 +355,7 @@
 .cli-class-container input[type="text"] {
     font-family: 'Poppins';
     margin-left: 10px;
-    width: 249px;
+    width: 300px;
     height: 35px;
     background: #ffffff;
     border-radius: 12px;

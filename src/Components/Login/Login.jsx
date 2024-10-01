@@ -92,17 +92,17 @@ const Login = () => {
                         <button className="login-button-text">Log In</button>
                     </div>
 
-                    <div className="login-login-last-row-text">
-                        <button className="login-text" onClick={handleForgetPassword}>Forget Password?</button>
-                        <button className="login-text" onClick={handleRegister}>Register</button>
+                    <div className="login-last-row-text">
+                        <button className="forget center login-text" onClick={handleForgetPassword}>Forget Password?</button>
+                        <button className="register center login-text" onClick={handleRegister}>Register</button>
                     </div>
                 </div>
             </div>
-            <div className='login-all-right'>
-                <p className="login-first-row">
+            <div className='all-right'>
+                <p className="all-right-first-row">
                     Welcome to the
                 </p>
-                <div className="login-second-row">
+                <div className="all-right-second-row">
                     <p className="L">L</p>
                     <p className="ab">ab</p>
                     <p className="I">I</p>
@@ -112,7 +112,7 @@ const Login = () => {
                     <p className="S">S</p>
                     <p className="ystem">ystem</p>
                 </div>
-                <div className="login-third-row">
+                <div className="all-right-third-row">
                     <p>
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
                         Vivamus metus arcu, molestie ac tempor at, fringilla eget ligula. 

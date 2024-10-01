@@ -284,8 +284,8 @@ const Register = () => {
                         </div>
 
                         <div className="register-last-row-text">
-                            <button className="forget-text" onClick={handleBackToLogin}>Back To Log In</button>
-                            <button className="login-text" onClick={handleForgetPassword}>Forget Password?</button>
+                            <button className="center login-text" onClick={handleBackToLogin}>Back To Log In</button>
+                            <button className="center login-text" onClick={handleForgetPassword}>Forget Password?</button>
                         </div>
                     </div>
                 </div>

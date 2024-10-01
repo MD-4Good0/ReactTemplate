@@ -76,16 +76,16 @@ const Forget = () => {
                     </div>
 
                     <div className="forget-last-row-text">
-                        <button className="forget-text" onClick={handleBackToLogin}>Back To Log In</button>
-                        <button className="forget-text" onClick={handleRegister}>Register</button>
+                        <button className="center login-text" onClick={handleBackToLogin}>Back To Log In</button>
+                        <button className="center login-text" onClick={handleRegister}>Register</button>
                     </div>
                 </div>
             </div>
-            <div className='forget-all-right'>
-                <p className="forget-first-row">
+            <div className='all-right'>
+                <p className="all-right-first-row">
                     Welcome to the
                 </p>
-                <div className="forget-second-row">
+                <div className="all-right-second-row">
                     <p className="L">L</p>
                     <p className="ab">ab</p>
                     <p className="I">I</p>
@@ -95,7 +95,7 @@ const Forget = () => {
                     <p className="S">S</p>
                     <p className="ystem">ystem</p>
                 </div>
-                <div className="forget-third-row">
+                <div className="all-right-third-row">
                     <p>
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
                         Vivamus metus arcu, molestie ac tempor at, fringilla eget ligula. 

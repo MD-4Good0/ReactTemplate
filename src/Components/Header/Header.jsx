@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom";
 import './Header.css';
 
 import home_icon from '../Assets/Home.png';
+import white_logo_icon from '../Assets/WhiteLogo.png';
+
 import Userfront from "@userfront/core";
 
 const Header = () => {
@@ -25,8 +27,7 @@ const Header = () => {
     return (
         <div className='header'>
             <div className="left-stuff">
-
-                <div className="title-short">LIMS</div>
+                <img src={white_logo_icon} alt="Logo" />
                 <div className="title">LIMS</div>
 
             </div>
@@ -34,9 +35,9 @@ const Header = () => {
             <div className="right-stuff">
                 <div className="l-o">
                     <button onClick={handleLogout} className="logout-button">
-                            <span><div className='logout-button-text'>
-                                Logout
-                            </div></span>
+                        <span><p className='logout-button-text center'>
+                            Log out
+                        </p></span>
                     </button>
                 </div>
 

@@ -3,7 +3,7 @@
 .home-client {
     position: relative;
     width: 100%;
-    min-height: 100vh;
+    margin-top: 14vh;
     font-family: 'Poppins', sans-serif;
     display: flex;
     flex-direction: column;
@@ -11,6 +11,7 @@
 
 .main-content {
     flex-grow: 1;
+    gap: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -19,52 +20,53 @@
     box-sizing: border-box;
 }
 
-.login-all-right {
-    text-align: center;
-    color: #FFFFFF;
-    margin-bottom: 20px;
+.web-title {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
 }
 
-.login-first-row {
-    font-weight: 700;
-    font-size: 62px;
-    margin-bottom: 0;
+.web-title-container img {
+    width: 155px;
 }
 
-.login-second-row {
+.web-title-container {
     display: flex;
     justify-content: center;
-    align-items: baseline;
+    align-items: center;
+    margin-top: -70px;
+    gap: 45px;
 }
 
-.L, .I, .M, .S {
-    font-size: 128px;
-    font-weight: 700;
-    line-height: 152px;
-}
 
-.ab, .nformation, .anagement, .ystem {
-    font-size: 32px;
+.web-titles {
+    display: flex;
+    align-items: flex-end;
+    font-family: 'Poppins';
     font-weight: 700;
-    line-height: 38px;
-    margin-top: auto;
+    color: white;
 }
 
 .announcement-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 100%;
-    max-width: 1050px;
+    max-width: 1280px;
+    height: 100%;
+    max-height: 95px;
     padding: 15px;
     background: rgba(255, 255, 255, 0.75);
     border-radius: 10px;
-    margin-bottom: 40px;
+    margin-bottom: 50px;
     text-align: center;
 }
 
 .announcement-box h2 {
     font-weight: 700;
-    font-size: 24px;
+    font-size: 36px;
     color: #2B9DC1;
-    margin-bottom: 10px;
 }
 
 .announcement-box p {
@@ -75,7 +77,7 @@
 .options-container {
     display: flex;
     justify-content: center;
-    gap: 40px;
+    gap: 130px;
     width: 100%;
     max-width: 1174px;
 }
@@ -96,6 +98,7 @@
 
 .option-card:hover {
     transform: translateY(-10px);
+    cursor: pointer;
 }
 
 .option-card:nth-child(2) {
