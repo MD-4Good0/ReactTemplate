@@ -1,18 +1,18 @@
 import React from "react";
-import HomeClient from './Components/Home/HomeClient';
+import HomeRecRel from './Components/Home/HomeRecRel';
 import BG from './Components/Background/BG';
 import Footer from './Components/Footer/Footer';
 import Header from './Components/Header/Header';
 
-function PageHomeClient() {
+function PageHomeRecRel() {
     return(
         <div>
             <Header/>
-            <HomeClient/>
+            <HomeRecRel/>
             <BG/>
             <Footer />
         </div>
     )
 }
 
-export default PageHomeClient
+export default PageHomeRecRel

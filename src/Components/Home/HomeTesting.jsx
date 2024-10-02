@@ -1,11 +1,11 @@
-import './HomeClient.css';
+import './Home.css';
 import Userfront from "@userfront/core";
 import { useNavigate } from 'react-router-dom';
 import white_logo_icon from '../Assets/WhiteLogo.png';
 
-import submit_icon from '../Assets/Submit.png';
-import track_icon from '../Assets/Track.png';
-import guide_icon from '../Assets/Guide.png';
+import testing_icon from '../Assets/TestingPage.png';
+import test_icon from '../Assets/TestResults.png';
+import database_icon from '../Assets/Database.png';
 
 Userfront.init("jb7ywq8b");
 
@@ -48,16 +48,16 @@ const HomeClient = () => {
 
         <div className="options-container" >
           <div className="option-card" onClick={handleSubmit}>
-            <img src={submit_icon} alt="Submit Request" />
-            <h2>Submit a Request</h2>
+            <img src={testing_icon} alt="Submit Request" />
+            <h2>For Testing Page</h2>
           </div>
           <div className="option-card" onClick={handleTrack}>
-            <img src={track_icon} alt="Track Request" />
-            <h2>Track My Request</h2>
+            <img src={test_icon} alt="Track Request" />
+            <h2>Test Results</h2>
           </div>
           <div className="option-card" onClick={handleGuide}>
-            <img src={guide_icon} alt="Guide" />
-            <h2>Guide</h2>
+            <img src={database_icon} alt="Guide" />
+            <h2>Database</h2>
           </div>
         </div>
       </main>

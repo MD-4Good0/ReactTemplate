@@ -11,6 +11,8 @@ import PageForgotES from './PageEmailSent';
 import PageForgotNIS from './PageNotInSystem';
 import PageRegisterTY from './PageThankYou';
 import PageHomeClient from './PageHomeClient';
+import PageHomeRecRel from './PageHomeRecRel';
+import PageHomeTesting from './PageHomeTesting';
 import PageSubmitRequest from './PageSubmitRequest';
 
 Userfront.init("jb7ywq8b");
@@ -54,6 +56,10 @@ function App() {
       <Route path="/login" element={<PageLogin/>}/>
       <Route path="/homeclient" element={<PageHomeClient/>}/>
       <Route path="/submit" element={<PageSubmitRequest/>}/>
+
+      <Route path="/homerecrel" element={<PageHomeRecRel/>}/>
+
+      <Route path="/hometesting" element={<PageHomeTesting/>}/>
     </Routes>
   );
 }
