@@ -4,6 +4,7 @@ import Userfront from "@userfront/core";
 import { useNavigate } from 'react-router-dom';
 
 import blue_logo_icon from '../Assets/BlueLine.png';
+import dropdown_icon from '../Assets/DropDown.png';
 
 Userfront.init("jb7ywq8b");
 
@@ -73,14 +74,20 @@ const Register = () => {
                         </div>
                     </div>
                     <div className='submit-column'>
-                        <div className='purposeoftesting'>
-
-                        </div>
-                        <div className='testselection'>
-
-                        </div>
+                        <button className='purposeoftesting'>
+                            <div className='purpose-title'>
+                                Purpose of Testing
+                            </div>
+                            <img src={dropdown_icon} alt='drop down'/>
+                        </button>
+                        <button className='testselection'>
+                            <div className='test-title'>
+                                Test Selection
+                            </div>
+                            <img src={dropdown_icon} alt='drop down'/>
+                        </button>
                         <div className='submit-button'>
-                            
+                            <button className="submit-text-button">Log In</button>
                         </div>
                     </div>
                 </div>

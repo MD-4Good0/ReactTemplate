@@ -47,10 +47,7 @@ const Forget = () => {
                 <div className='forget-container'>
                     <div className='f-c-container'>
                         <p className="f-c-c-forgetyourpassword">
-                            Forget
-                        </p>
-                        <p className="f-c-c-forgetyourpassword">
-                            Your
+                            Forget your
                         </p>
                         <p className="f-c-c-forgetyourpassword">
                             Password?

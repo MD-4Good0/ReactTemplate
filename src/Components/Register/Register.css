@@ -7,7 +7,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-top: 10.2vh;
+    margin-top: 11vh;
     gap: 140px;
 }
 
@@ -226,7 +226,7 @@
 .eyecon-register img{
     margin-top: 10px;
     width: 45px;
-}
+} 
 
 .register-last-row-text {
     display: flex;

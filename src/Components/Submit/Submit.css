@@ -93,6 +93,8 @@
 
 .submit-row {
     margin-top: 30px;
+    display: flex;
+    gap: 30px;
 }
 
 .sample-row{
@@ -104,7 +106,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 560px;
+    width: 585px;
     height: 460px;
     gap: 30px;
     background-color: #fff;
@@ -152,10 +154,74 @@
     text-align: center;
     font-size: 15px;
     font-weight: 500;
-    color: #004e65;
+    color: #2B9DC1;
 }
 
 input:focus {
     outline: none;
 }
 
+.submit-column {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.purposeoftesting, .testselection{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 585px;
+    height: 85px;
+    background-color: #fff;
+    border-radius: 10px;
+    border: none;
+    font-size: 32px;
+    font-weight: 700;
+    font-family: 'Poppins';
+    color: #2B9DC1;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.purposeoftesting img, .testselection img {
+    width: 40px;
+    padding-right: 50px;
+}
+
+.purposeoftesting:hover, .testselection:hover {
+    transform: translateY(-5px);
+}
+
+.purpose-title, .test-title {
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+.submit-text-button {
+    font-weight: 700;
+    font-family: 'Poppins';
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 585px;
+    height: 85px;
+    background-color: #2B9DC1;
+    border-radius: 10px;
+    font-size: 32px;
+    font-weight: 700;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+.submit-button button {
+    border: none;
+    transition: color 0.3s ease, 
+        background 0.3s ease, 
+}
+
+.submit-button button:hover{
+    color: #2B9DC1;
+    background: #fff;
+    border: 4px solid #2B9DC1
+}
