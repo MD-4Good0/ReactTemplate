@@ -1,5 +1,5 @@
 {
-  "name": "lims",
+  "name": "template",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -37,6 +37,7 @@
     "jest": "^29.7.0",
     "react-scripts": "^5.0.1",
     "react-testing-library": "^8.0.1",
+    "tailwindcss": "^3.4.13",
     "webpack": "^5.89.0",
     "webpack-cli": "^5.1.4"
   },
